@@ -1,0 +1,113 @@
+<div class="row page-header">
+    <div class="col-6 align-self-center ">
+      <h2>Quản lý danh mục</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" style="font-size: 15px;">Trang chủ</a></li>
+         
+            <li class="breadcrumb-item active" style="font-size: 15px;">Quản lý danh mục</li>		
+        </ol>
+    </div>
+</div>
+<style>
+    ol li {
+        display: flex;
+        align-items: center;
+        color: #868e96;
+        
+    }
+</style>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- <form [formGroup]="categoryForm" (ngSubmit)="onSubmit(categoryForm)">
+                
+                            <div class="form-group">
+                                <label>Thêm danh mục</label>
+                                <div class="sr1">
+                                    <input type="text" placeholder="Nhập tên danh mục" class="form-control form-control-rounded"
+                                        id="name" formControlName="name">
+                                    <button class="btn btn-info" type="submit" [disabled]="!categoryForm.valid"><i
+                                            class="fa fa-floppy-o "></i>&nbsp;Thêm</button>
+                                </div>
+                
+                            </div>
+                
+                        </form> -->
+                    </div>
+                    <div class="col-md-5">
+                        <!-- <form [formGroup]="searchForm" (ngSubmit)="onSubmit1(searchForm)">
+                    <div class="form-group">
+                        <label>Tìm kiếm</label>
+                        <div class="sr">
+                        <input type="text" placeholder="Nhập tên danh mục cần tìm" class="form-control form-control-rounded"  id="txtSearch"  formControlName="txtSearch">
+                        <button id="search" class="btn btn-info" ><i class="fa fa-search "></i>&nbsp;Search</button>
+                    </div>
+                    </div>
+                </form> -->
+                
+                    </div>
+                
+                </div>
+                
+                <style>
+                    .sr {
+                        display: flex;
+                    }
+                
+                    .sr1 {
+                        display: flex;
+                    }
+                </style>
+                <table id="datatable" class="table table-striped nowrap dataTable no-footer dtr-inline align-self-center" width="100%">
+                    <thead>
+                        <tr class="bg-chart" style="color: white;">
+                            <th>
+                                <strong>STT</strong>
+                            </th>
+                            <th>
+                                <strong>Tên danh mục</strong>
+                            </th>
+                            <th>
+                                <strong>Số lượng sản phẩm</strong>
+                            </th>
+                            <th>
+                                <strong>Tác vụ</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let page of pageLst; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>
+                                {{page.Id}}
+                            </td>
+                            <td>
+                                {{page.Code}}
+                            </td>
+                            <td>
+                                {{page.Controller}}
+                            </td>
+                            <td>
+                                {{page.Action}}
+                            </td>
+                          
+                
+                            <!-- <td class="">
+                
+                               <button (click)="edit(cate.id)" type="button" class="btn btn-sm btn-info"><i
+                                        class="fa fa-edit"></i></button>&nbsp;
+                                <button (click)="deleteCategory(cate.id)" type="button" class="btn btn-sm btn-danger"><i
+                                        class="fa fa-trash"></i></button> 
+                            </td> -->
+                        </tr>
+                
+                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
