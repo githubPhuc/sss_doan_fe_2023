@@ -1,0 +1,103 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>Add record</b>
+                        </h3>
+                    </div>
+                    <form [formGroup]="InsertForm" (ngSubmit)="onSubmit(InsertForm)">
+                        <div class="card-body pad">
+                            <div class="row">
+                            
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Name: </label>
+                                        <input type="text" id="Name" formControlName="Name" class="form-control form-control-xs" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Code: </label>
+                                        <input formControlName="code" id="code" class="form-control form-control-xs"/>
+                                 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <button id="btnCraeate"  type="submit" [disabled]="!InsertForm.valid" class="btn bg-gradient-success"><i class="fa fa-plus"></i> create</button>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                        </div>
+                    </form>
+                
+                </div>
+            
+            </div>
+                
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>{{this.title}}</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border">List Record Color</legend>
+                                    <div class="control-group">
+                                        <table id="myTable-SanPham" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="100px"></th>
+                                                    <th >STT</th>
+                                                    <th>Id</th>
+                                                    <th>Color code</th>
+                                                    <th>Color name  </th>
+                                                </tr>
+                                            </thead>
+                                
+                                            <tbody>
+                                              
+                                                <tr *ngFor="let item of dataT; let i=index">
+                                                    <td >
+                                                        <!-- <a (click)="edit(item.id)" class="btn">
+                                                            <i class="fas fa-edit"></i> Sửa
+                                                        </a> -->
+                                                        <a (click)="delete(item.id)" class="btn">
+                                                            <i class="far fa-trash-alt"></i> Xóa
+                                                        </a>
+                                                        </td>
+                                                    <td>{{i+1}}</td>
+                                                     <td>{{item.id}}  </td>
+                                                     <td>{{item.code}}  </td>
+                                                     <td>{{item.name}}  </td>
+                                                </tr>
+                                                  
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+

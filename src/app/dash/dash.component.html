@@ -32,10 +32,10 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="openMenu" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a id="openMenu" class="nav-link" data-widget="pushmenu" href="#" role="button"></a>
                 </li>
             </ul>
-            <ul id="formatNamePage"><b>Title</b></ul>
+            <ul id="formatNamePage"><b>Manage Admin</b></ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 
@@ -51,24 +51,18 @@
                 <ul class="nav navbar-nav">
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu center-block">
-                        <a href="#" class="dropdown-toggle username-header" data-toggle="dropdown" aria-expanded="false">
+                        <a (click)="dropLogout()"class="dropdown-toggle username-header" data-toggle="dropdown" aria-expanded="false" id="clickLog">
                             <div style="float:left">{{username}}</div>
                              <div style="float:left" class="d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-none d-xl-block"> - {{name}}</div>
                         </a>
-                        <ul class="dropdown-menu fix-dropdown">
+                        <ul class="dropdown-menu fix-dropdown" id="log">
                             <li>
                                 <div style="padding:5px;">
-                                    <a href="#" style="margin-left:15px;color:black"><i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
+                                    <a (click)="logOut()" style="margin-left:15px;color:black"><i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
                                 </div>
                             </li>
                         </ul>
-                        <ul class="dropdown-menu fix-dropdown">
-                            <li>
-                                <div style="padding:5px;">
-                                    <a href="#" style="margin-left:15px;color:black"><i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
-                                </div>
-                            </li>
-                        </ul>
+                      
                     </li>
                     <!-- Control Sidebar Toggle Button -->
                     <li style="display:none">
@@ -79,79 +73,123 @@
         </nav>
        
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            
-
             <!-- Sidebar -->
             <div class="sidebar">
-
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                      
-                        <li>
-
-                            <!-- <a href="#"> // loo go
-                                <img src="../../assets/Content/images/logo_tt1.png" width="170px" height="60" />
-                            </a> -->
-                        </li>
                         <li class="nav-link">
                             
                             <a [routerLink]="['/admin/Home']" class="nav-item">  
-                                <i class="nav-icon fas fa-home"></i>    
+                                <i class="nav-icon fas fa-home"> </i>    
                                 <p>
                                     Home
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item active" id="nav-item">
+                            <a class="nav-link" (click)="drop()" aria-expanded="false" id="dropdownButton">
+                                <i class="fa fa-envelope-open"></i> 
+                                <p class="toggle-none">Admin
+                                    <i id="icon-inv" class="fa fa-angle-down" aria-hidden="true">
 
-                       
-                        
-                        <li class="nav-item  ">
-                            <a [routerLink]="['/admin/Notifi']" class="nav-link">  
-                                icon    
-                                <p>
-                                    MenuName
-                                    <i class="fas fa-angle-left right"></i>
+                                    </i> 
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a [routerLink]="['/admin/Notifi']"
-                                               class="nav-link">
-                                                icon
-                                                <p>
-                                                    MenuName
-                                                </p>
-                                            </a>
-                                        </li>
-                                   
+                            <ul class="nav-second-level nav sub-menu" style="display: none;" aria-expanded="false" id="test">
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Menu']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Menu
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"[routerLink]="['/admin/invoice/confirm']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            User menu
+                                        </p>
+
+                                    </a>
+                                </li>
+							
+      
                             </ul>
                         </li>
-                        <li class="nav-item  ">
-                            <a [routerLink]="['/admin/Page']" class="nav-link">  
-                                icon    
-                                <p>
-                                    Admin
-                                    <i class="fas fa-angle-left right"></i>
+                        <li class="nav-item " id="nav-item ">
+                            <a class="nav-link" (click)="dropDirectory()" aria-expanded="false" id="dropdownDirectory">
+                                <i class="fa fa-envelope-open"></i> 
+                                <p class="toggle-none">Directory
+                                    <i id="downDirectory" class="fa fa-angle-down" aria-hidden="true"></i> 
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a [routerLink]="['/admin/Page']"
-                                               class="nav-link">
-                                                icon
-                                                <p>
-                                                    page
-                                                </p>
-                                            </a>
-                                        </li>
-                                   
+                            <ul class="nav-second-level nav sub-menu" style="display: none;" aria-expanded="false" id="Directory">
+                                <li class="nav-item active">
+                                    <a class="nav-link" [routerLink]="['/admin/Product']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Product
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Ram']">
+                                        <i class="far fa-circle nav-icon" > </i> 
+                                        <p>
+                                            Directory Ram
+                                        </p>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Ssd']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Rom
+                                        </p>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Display']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Display
+                                        </p>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Color']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Color
+                                        </p>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Cpu']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Cpu
+                                        </p>
+
+                                    </a>
+                                </li>
+							
+      
                             </ul>
                         </li>
                        
-
+                       
+						
+                
                     </ul>
+               
+
 
 
 

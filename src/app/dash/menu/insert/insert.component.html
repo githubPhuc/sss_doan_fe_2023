@@ -1,0 +1,86 @@
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <b>Thêm mới</b>
+                            </h3>
+                        </div>
+                        <form [formGroup]="InsertForm" (ngSubmit)="onSubmit(InsertForm)">
+                            <div class="card-body pad">
+                                <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                
+                                        <fieldset class="scheduler-border">
+                                            <legend class="scheduler-border">Các trường data</legend>
+                                            
+                                            <div class="row" style="margin-bottom:5px">
+                                                <div class="col-md-12 col-sm-4">
+                                                    <div class="row" style="margin-bottom:5px">
+                                                        <div class="col-xs-3">
+                                                            <div class="form-group">
+                                                                <label >Menu_name :</label>
+                                                                <div >
+                                                                    <input value="" class="form-control" type="text" id="Menu_Name" formControlName="Menu_Name" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <div class="form-group">
+                                                                <label >parentId :</label>
+                                                                <div >
+                                                                    <input value="" class="form-control" type="number" id="parentId" min="0" formControlName="parentId" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <div class="form-group">
+                                                                <label >oder_no :</label>
+                                                                <div >
+                                                                    <input value="" class="form-control" type="number" id="oder_no" min="0" formControlName="oder_no" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <div class="form-group">
+                                                                <label >icon :</label>
+                                                                <div >
+                                                                    <input value="" class="form-control" type="text" id="icon" formControlName="icon" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        </fieldset>
+                                
+                                </div>
+                                <div class="col-md-3"></div>
+                                    <div class="col-md-12">
+                                        <!-- /.form-group -->
+                                        <div class="modal-footer">
+                                            <div class="text-right">
+                                                <button type="button" id="btSave" type="submit" [disabled]="!InsertForm.valid" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>
+                                                &nbsp;&nbsp;
+                                                <button type="button" (click)="_View()"class="btn btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Đóng</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+
+        
+        </div><!-- /.container-fluid -->
+    </section>

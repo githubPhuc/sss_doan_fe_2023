@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceLoginService } from '../service/service-login.service';
-import { Login } from './login';
+  import { Login } from './login';
 import { NotifierService } from '../service/notifier.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl: './login.component.html',  
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit{
       window.localStorage.setItem('name',data1.name);
       if(data1.role =='Admin')
       {
-        this.router.navigate(['/'+'admin']);
+        this.router.navigate(['/'+'admin/Home']);
       }
       else{
         this.toastr.ShowError('Login fail!','Login fail. User not is admin! ');
