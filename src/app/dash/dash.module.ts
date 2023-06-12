@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { DashRoutingModule } from './dash-routing.module';
 import { DashComponent } from './dash.component';
@@ -15,6 +16,14 @@ import { DisplayProductComponent } from './display-product/display-product.compo
 import { SsdProductComponent } from './ssd-product/ssd-product.component';
 import { CpuProductComponent } from './cpu-product/cpu-product.component';
 import { ColorProductComponent } from './color-product/color-product.component';
+import { AccountComponent } from './account/account.component';
+import { InsertAccountComponent } from './account/insert/insert.component';
+import { DistrictComponent } from './district/district.component';
+import { CityComponent } from './city/city.component';
+import { WardsComponent } from './wards/wards.component';
+import { InsertCityComponent } from './city/insert-city/insert-city.component';
+import { InsertDistrictComponent } from './district/insert-district/insert-district.component';
+import { InsertWardsComponent } from './wards/insert-wards/insert-wards.component';
 
 
 @NgModule({
@@ -30,13 +39,24 @@ import { ColorProductComponent } from './color-product/color-product.component';
     DisplayProductComponent,
     SsdProductComponent,
     CpuProductComponent,
-    ColorProductComponent
+    ColorProductComponent,
+    AccountComponent,
+    InsertAccountComponent,
+    DistrictComponent,
+    CityComponent,
+    WardsComponent,
+    InsertCityComponent,
+    InsertDistrictComponent,
+    InsertWardsComponent,
   ],
   imports: [
     CommonModule,
     DashRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    
+    
   ],
   bootstrap: [DashComponent]
   

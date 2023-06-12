@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountComponent } from './account/account.component';
 import { ColorProductComponent } from './color-product/color-product.component';
 import { CpuProductComponent } from './cpu-product/cpu-product.component';
 import { DashComponent } from './dash.component';
 import { DisplayProductComponent } from './display-product/display-product.component';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { InsertComponent } from './menu/insert/insert.component';
+import { InsertAccountComponent } from './account/insert/insert.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotifierComponent } from './notifier/notifier.component';
 import { ProductComponent } from './product/product.component';
 import { RamProductComponent } from './ram-product/ram-product.component';
 import { SsdProductComponent } from './ssd-product/ssd-product.component';
+import { CityComponent } from './city/city.component';
+import { WardsComponent } from './wards/wards.component';
+import { DistrictComponent } from './district/district.component';
 
 const routes: Routes = [
   {
@@ -34,6 +39,11 @@ const routes: Routes = [
   { path: 'Cpu', component: CpuProductComponent },
   { path: 'Color', component: ColorProductComponent },
   { path: 'Menu/Insert', component: InsertComponent },
+  { path: 'Account', component: AccountComponent },
+  { path: 'Account/Insert', component: InsertAccountComponent },
+  { path: 'City', component: CityComponent },
+  { path: 'Ward', component: WardsComponent },
+  { path: 'District', component: DistrictComponent },
 ];
 
 @NgModule({

@@ -9,8 +9,9 @@ import { LoginComponent  } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
-import {ToastrModule} from 'ngx-toastr'
+import {ToastrModule} from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import {ToastrModule} from 'ngx-toastr'
       timeOut:3000,
       
     }),
+    NgxMatSelectSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
