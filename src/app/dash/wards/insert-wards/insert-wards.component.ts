@@ -28,7 +28,6 @@ export class InsertWardsComponent  implements OnInit {
   }
   Data:any;
   District:any;
-  selectedValue:any;
   ngOnInit(): void {
     this.cityService.getCities("").subscribe(res=>{
       this.Data=res.acc;
@@ -36,10 +35,9 @@ export class InsertWardsComponent  implements OnInit {
     
   }
   onChange(event:any){
-    console.log(this.selectedValue);// phúc đang lỗi
-    console.log(event);
-    this.districtService.LoadOnCity(this.selectedValue).subscribe(res=>{
+    this.districtService.LoadOnCity(event).subscribe(res=>{
       this.District=res.acc;
+      console.log(this.District);
     })
   }
 
@@ -56,14 +54,15 @@ export class InsertWardsComponent  implements OnInit {
     }
     if(form.value.IdCity==0)
     {
-      this.toastr.ShowError('Name Ward is null!',' Please check again!');
+      this.toastr.ShowError('Id City is null!',' Please check again!');
       return;
     }
     if(form.value.IdDistrict==0)
     {
-      this.toastr.ShowError('Name District is null!',' Please check again!');
+      this.toastr.ShowError('Id District is null!',' Please check again!');
       return;
     }
+    console.warn(form.value);
     this.wardsService.PostWards(form.value.NameWard,form.value.IdDistrict,form.value.IdCity).subscribe((dataT: { status: any; message: any; }) => {
         if(dataT.status=="Success")
         {

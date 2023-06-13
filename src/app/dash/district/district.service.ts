@@ -20,8 +20,9 @@ export class DistrictService {
   }
   public LoadOnCity(idCity:number)
   {
+    console.log(idCity);
     return this.httpClient
-			.get<any>('https://localhost:7109/api/Districts/LoadOnCity?idCity'+idCity,{headers: new HttpHeaders({ 
+			.get<any>('https://localhost:7109/api/Districts/LoadOnCity?idCity='+idCity,{headers: new HttpHeaders({ 
         'Content-Type': 'application/json',
         'Authorization': this.strToken
      })});
