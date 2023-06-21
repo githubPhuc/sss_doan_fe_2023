@@ -51,7 +51,7 @@ export class ColorProductComponent implements OnInit {
   
   onSubmit(form:FormGroup) {
     console.warn(form.value);
-    if(form.value.name==null||form.value.name=='')
+    if(form.value.Name==null||form.value.Name=='')
     {
       this.toastr.ShowError('Color name is null!',' Please check again!');
       return;
@@ -63,6 +63,7 @@ export class ColorProductComponent implements OnInit {
     }
     this.data.Name=form.value.Name;
     this.data.code=form.value.code;
+    console.log(this.data);
     this.colorService.PostColorProducts(this.data).subscribe((dataT: { status: any; message: any; }) => {
         if(dataT.status=="Success")
         {

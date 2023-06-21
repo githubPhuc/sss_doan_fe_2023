@@ -18,6 +18,14 @@ export class WardsService {
         'Authorization': this.strToken
      })});
   }
+  public GetWardOnDistrictAndCity(IdCity:number,IdDistrict:number)
+  {
+    return this.httpClient
+			.get<any>('https://localhost:7109/api/Wards/GetWardOnDistrictAndCity?IdCity='+IdCity+'&IdDistrict='+IdDistrict,{headers: new HttpHeaders({ 
+        'Content-Type': 'application/json',
+        'Authorization': this.strToken
+     })});
+  }
   public PostWards(NameWard:string,IdDistrict:number,IdCity:number){
  
     return this.httpClient.post<any>('https://localhost:7109/api/Wards?NameWards='+ NameWard+'&IdDistrict='+IdDistrict+'&IdCity='+IdCity,{headers: new HttpHeaders({ 

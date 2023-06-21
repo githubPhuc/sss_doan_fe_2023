@@ -16,6 +16,7 @@ import { SsdProductComponent } from './ssd-product/ssd-product.component';
 import { CityComponent } from './city/city.component';
 import { WardsComponent } from './wards/wards.component';
 import { DistrictComponent } from './district/district.component';
+import { CardDisplayComponent } from './card-display/card-display.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'City', component: CityComponent },
   { path: 'Ward', component: WardsComponent },
   { path: 'District', component: DistrictComponent },
+  { path: 'CardDisplay', component: CardDisplayComponent },
 ];
 
 @NgModule({

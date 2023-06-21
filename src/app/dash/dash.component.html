@@ -175,7 +175,14 @@
                                         <p>
                                             Directory Display
                                         </p>
-
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/CardDisplay']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Card Display
+                                        </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -223,6 +230,27 @@
 
                                     </a>
                                 </li>
+							
+      
+                            </ul>
+                        </li>
+                        <li class="nav-item " id="nav-item ">
+                            <a class="nav-link" (click)="dropDepot()" aria-expanded="false" id="dropdownDepot">
+                                <i class="fa fa-envelope-open"></i> 
+                                <p class="toggle-none">Depot
+                                    <i id="downDepot" class="fa fa-angle-down" aria-hidden="true"></i> 
+                                </p>
+                            </a>
+                            <ul class="nav-second-level nav sub-menu" style="display: none;" aria-expanded="false" id="Depot">
+                                <li class="nav-item active">
+                                    <a class="nav-link" [routerLink]="['/admin/Product']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Import Depot
+                                        </p>
+                                    </a>
+                                </li>
+                               
 							
       
                             </ul>

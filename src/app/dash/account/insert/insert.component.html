@@ -1,67 +1,154 @@
+<form  [formGroup]="InsertForm">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+            
 
-<div class="modal-header">
-    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
-</div>
-<mat-dialog-content  class="mat-typography">
-        
-    <div class="row" style="margin-bottom:5px">
-        <div class="col-md-12 col-sm-4">
-            <!--Nhóm mặt hàng-->
-            <div class="row" style="margin-bottom:5px">
-                <label class="col-md-3 col-sm-3">Nhóm mặt hàng:</label>
-                <div class="col-md-9 col-sm-9 ten">
-                    <input oninput="this.value = this.value.toUpperCase().trim()" pattern="[A-Z_]+" value="" class="form-control" type="text" id="NhomMH" name="NhomMH" />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>User name</label>
+                                <input type="text" formControlName="userName" id="userName" class="form-control form-group-lg" value="{{Username}}" [readonly]="true" > 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" formControlName="Password" id="Password" class="form-control form-group-lg" placeholder="Please enter your Password" >
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Accout Type</label>
+                                <select id="accoutType" formControlName="accoutType"  class="form-control form-group-lg">
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>City</label>    
+                                <select class="form-control form-group-lg" (ngModelChange)="onChangeCity($event)" id="city" formControlName="city"> 
+                                    <option selected disabled value="false">-- List item City --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataCity; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>District</label>
+                              
+                                <select class="form-control form-group-lg" (ngModelChange)="onChangeDistrict($event)" id="district" formControlName="district"> 
+                                    <option selected disabled value="false">-- List item district --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataDistrict; let i=index">{{item.id}}||{{item.nameDistrict}}</option>
+                                </select>
+                             
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Wards</label>
+                                <select class="form-control form-group-lg" id="wards" formControlName="wards" > 
+                                    <option selected disabled value="false">-- List item wards --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataWards; let i=index">{{item.id}}||{{item.nameWards}}</option>
+                                </select>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Home address</label>
+                                <input type="text" formControlName="shippingAddress" id="shippingAddress" class="form-control form-group-lg" value="" placeholder="Please enter specific home address" > 
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                         <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" formControlName="email" id="email" class="form-control form-group-lg" value="" placeholder="Please enter your email" > 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>phoneNumber</label>
+                                    <input type="text" formControlName="phoneNumber" id="phoneNumber" class="form-control form-group-lg" value="" placeholder="Please enter your phone number" > 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>full name</label>
+                                    <input type="text" formControlName="fullname" id="fullname" class="form-control form-group-lg" placeholder="Please enter your phone full name" >
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" formControlName="email" id="email" class="form-control form-group-lg" value="" placeholder="Please enter your email" > 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>phoneNumber</label>
+                                        <input type="text" formControlName="phoneNumber" id="phoneNumber" class="form-control form-group-lg" value="" placeholder="Please enter your phone number" > 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>full name</label>
+                                        <input type="text" formControlName="fullname" id="fullname" class="form-control form-group-lg" placeholder="Please enter your phone full name" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Images</label>
+                                        <input type="file" formControlName="images" id="images" (change)="UploadImage($event)" class="form-control form-group-lg" placeholder="Choose file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <div class="col-md-12">
+                                    <div class="rev">
+                                        <img  [src]="imgShow" alt="..." width="230" >
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+    </mat-dialog-content>
 
-            <!--Tên loại-->
-            <div class="row" style="margin-bottom:5px">
-                <label class="col-md-3 col-sm-3">Tên loại:</label>
-                <div class="col-md-9 col-sm-9 ten">
-                    <input value="" class="form-control" type="text" id="TenLoai" name="TenLoai" />
-                </div>
-            </div>
 
-            <!---->
-            <div class="row" style="margin-bottom:5px">
-                <label class="col-md-3 col-sm-3">TDH:</label>
-                <div class="col-md-9 col-sm-9 ten">
-                    <input value="" class="form-control" type="number" id="TDH" min="0" name="TDH" />
-                </div>
-            </div>
-            <!---->
-            <div class="row" style="margin-bottom:5px">
-                <label class="col-md-3 col-sm-3">HT:</label>
-                <div class="col-md-9 col-sm-9 ten">
-                    <input value="" class="form-control" type="number" id="HT" min="0" name="HT" />
-                </div>
-            </div>
-            <!---->
-            <div class="row" style="margin-bottom:5px">
-                <label class="col-md-3 col-sm-3">Ghi chú:</label>
-                <div class="col-md-9 col-sm-9 ten">
-                    <input value="" class="form-control"  id="Ghichu" name="Ghichu" />
-                </div>
-            </div>
-
-            <!--Hiệu lực-->
-            <div class="row" style="margin-bottom:5px">
-                <label class="col-md-3 col-sm-3">Hiệu lực: </label>
-                <div class="col-md-3 col-sm-9 ten">
-                    <input value="TRUE" class="btn" style="width: 20px; height: 20px" checked type="checkbox" id="Hieuluc" name="Hieuluc" />
-                </div>
-            </div>
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave" (click)="onSubmitInsert(InsertForm)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
         </div>
-    </div>
-
-
-</mat-dialog-content>
-
-
-<div class="modal-footer" mat-dialog-actions>
-    <div class="text-right">
-        <button mat-dialog-save id="btSave" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
-        <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
-    </div>
-</div> 
-
+    </div> 
+</form>

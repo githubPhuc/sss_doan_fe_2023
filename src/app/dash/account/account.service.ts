@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Account } from './Account';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,15 @@ export class AccountService {
      })});
 		
   }
+  public GetUserName()
+  {
+    return this.httpClient
+			.get<any>('https://localhost:7109/api/Authenticate/GetUserName',{headers: new HttpHeaders({ 
+        'Content-Type': 'application/json',
+        'Authorization': this.strToken
+     })});
+		
+  }
   public lockAccount(id:string)
   {
     return this.httpClient
@@ -38,4 +48,20 @@ export class AccountService {
      })});
 		
   }
+  public registerAdmin(data:Account)
+   {
+    return this.httpClient
+    .post<any>('https://localhost:7043/api/authenticate/register-admin',data,{headers: new HttpHeaders({ 
+      'Content-Type': 'application/json'
+     
+   })});
+   }
+   public uploadImage(userName:any,data:FormData)
+   {
+    return this.httpClient
+    .post<any>('https://localhost:7109/api/Authenticate/uploadImage?userName='+userName,data,{headers: new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': this.strToken
+   })});
+   }
 }

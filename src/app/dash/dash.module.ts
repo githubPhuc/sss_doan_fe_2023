@@ -24,6 +24,8 @@ import { WardsComponent } from './wards/wards.component';
 import { InsertCityComponent } from './city/insert-city/insert-city.component';
 import { InsertDistrictComponent } from './district/insert-district/insert-district.component';
 import { InsertWardsComponent } from './wards/insert-wards/insert-wards.component';
+import { CardDisplayComponent } from './card-display/card-display.component';
+import { InsertCardDisplayComponent } from './card-display/insert-card-display/insert-card-display.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { InsertWardsComponent } from './wards/insert-wards/insert-wards.componen
     InsertCityComponent,
     InsertDistrictComponent,
     InsertWardsComponent,
+    CardDisplayComponent,
+    InsertCardDisplayComponent,
   ],
   imports: [
     CommonModule,

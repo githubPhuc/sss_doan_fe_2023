@@ -10,24 +10,12 @@
                             </h3>
                         </div>
                         <div class="card-body pad">
-                            <form [formGroup]="searchForm" >
+                            <form  [formGroup]="searchForm">
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>Username: </label>
-                                            <input type="text" id="Username" formControlName="Username" (input)="Search(searchForm)" class="form-control form-control-xs" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label>Fullname: </label>
-                                            <input type="text" id="Fullname" formControlName="Fullname" (input)="Search(searchForm)" class="form-control form-control-xs" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label>Email: </label>
-                                            <input type="text" id="Email" formControlName="Email" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                            <label>Name: </label>
+                                            <input type="text" id="Name" (input)="Search(searchForm)" formControlName="Name" class="form-control form-control-xs" />
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +38,7 @@
                         <div class="row" style="margin-bottom:10px">
                             <div class="col-md-4">
                                 <div class="col-lg-3 align-self-center text-right">
-                                    <button id="btInsert" (click)="_InsertView()" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Add record</button>&nbsp;
+                                    <button id="btInsert"  (click)="_InsertView()" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Thêm mới</button>&nbsp;
                                     
                                 </div>
                             </div>
@@ -65,33 +53,25 @@
                                                 <tr>
                                                     <th width="80px"></th>
                                                     <th >STT</th>
-                                                    <th>User name</th>
-                                                    <th>Full name  </th>
-                                                    <th>Email </th>
-                                                    <th>Account type </th>
-                                                    <th>Phone number </th>
-                                                    <th>Is Locked </th>
+                                                    <th >Id</th>
+                                                    <th>Card name</th>
+                                                    <th>Technical Data </th>
                                                 </tr>
                                             </thead>
                                 
                                             <tbody>
                                               
-                                                <tr *ngFor="let item of accountData; let i=index">
+                                                <tr *ngFor="let item of Data; let i=index">
                                                     <td align="center">
-                                                        <a (click)="lockAccount(item.id)" class="btn">
+                                                        <a (click)="delete(item.id)" class="btn">
                                                             <i class="far fa-trash-alt"></i> Xóa
                                                         </a>
                                                     </td>
                                                     <td>{{i+1}}</td>
-                                                    <td>{{item.userName}}</td>
-                                                    <td>{{item.fullname}}</td>
-                                                    <td>{{item.email}}</td>
-                                                    <td>{{item.accoutType}}</td>
-                                                    <td>{{item.phoneNumber}}</td>
-                                                    <td>{{item.isLocked}}</td>
-                                                    
-                                                </tr>
-                                                  
+                                                    <td>{{item.id}}</td>
+                                                    <td>{{item.name}}</td>
+                                                    <td>{{item.technicalData}}</td>
+                                                </tr> 
                                             </tbody>
                                         </table>
                                     </div>
