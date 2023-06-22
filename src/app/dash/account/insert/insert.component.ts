@@ -1,3 +1,4 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -32,15 +33,15 @@ export class InsertAccountComponent implements OnInit {
   dataWards:any;
   dataAccount:any;
   numDataCity!: number;
-  Username:any;
+  username:any;
+  EditProductCode = '';
   imgShow:any;
   isSuccess! :boolean;
   formData=new FormData();
-  fileToUpload:any
-  fileName:any;
+  file!: File; 
   ngOnInit(): void {
     this.accountService.GetUserName().subscribe(res=>{
-      this.Username=res.acc;
+      this.username=res.acc;
     })
     this.cityService.getCities("").subscribe(res=>{
       this.dataCity=res.acc;
@@ -89,12 +90,12 @@ export class InsertAccountComponent implements OnInit {
       return;
   
     }
-    if(form.value.phone.length>10||form.value.phone.length<10)
+    if(form.value.phoneNumber.length>10||form.value.phoneNumber.length<10)
     {
       this.toastr.ShowError('Phone number must be 10 characters!',' Please check again!');
       return;
     }
-    if(form.value.fullName.length<1)
+    if(form.value.fullname.length<1)
     {
       this.toastr.ShowError('Name cannot be blank!',' Please check again!');
       return;
@@ -114,53 +115,49 @@ export class InsertAccountComponent implements OnInit {
       this.toastr.ShowError('District cannot be blank!',' Please check again!');
       return;
     }
-    console.log('data',form.value);
-
-    this.dataAcc.userName=form.value.username;
-    this.dataAcc.Password=form.value.password;
+    if(this.file==null)
+    {
+      this.toastr.ShowError('Image not null!',' Please check again!');
+      return;
+    }
+    this.dataAcc.username=this.username;
+    this.dataAcc.Password=form.value.Password;
     this.dataAcc.email=form.value.email;
-    this.dataAcc.phoneNumber=form.value.phone;
-    this.dataAcc.fullname=form.value.fullName;
+    this.dataAcc.phone=form.value.phoneNumber;
+    this.dataAcc.fullname=form.value.fullname;
     this.dataAcc.shippingAddress=form.value.shippingAddress;
-    this.dataAcc.city=form.value.city;
+    this.dataAcc.cyti=form.value.city;
     this.dataAcc.wards=form.value.wards;
     this.dataAcc.district=form.value.district;
-    this.accountService.registerAdmin(this.dataAccount).subscribe((dataT: { status: any; message: any; }) => {
+    console.log(this.dataAcc);
+    let formdata = new FormData();
+    formdata.append("file", this.file, this.username)
+    this.accountService.registerAdmin(this.dataAcc).subscribe((dataT: { status: any; message: any; }) => {
       if(dataT.status=="Success")
       {
-        this.isSuccess==true;
+        this.accountService.UploadImage(this.username,formdata).subscribe(result => {
+          this.toastr.ShowSuccess('Success!',dataT.message);
+          location.reload(); 
+        });
       }
       else{
         this.isSuccess==false;
+        this.toastr.ShowError('Error!',dataT.message);
+        return;
       }
-    })
-    if(this.isSuccess){
-      this.formData.append('ImageFile', this.fileToUpload, this.fileName);
-      this.accountService.uploadImage(this.dataAcc.userName,this.formData).subscribe((dataT: { status: any; message: any; }) => {
-        if(dataT.status=="Success")
-        {
-          this.toastr.ShowSuccess('Success!',dataT.message);
-          location.reload(); 
-        }
-        else{
-          this.toastr.ShowError('Error!',dataT.message);
-          return;
-        }
-      })
-    }
-    else{
-      this.toastr.ShowError('Error!',"Data error, please check again");
-      return;
-    }
+    });
+   
   }
-  UploadImage(event:any){
-    console.log(event);
+
+  ShowImage(event:any){
     let reader = new FileReader();
-    reader.readAsDataURL(event.target.file[0]);
+    this.file = event.target.files[0];
+    reader.readAsDataURL(event.target.files[0]);
     reader.onload=()=>{
       this.imgShow=reader.result;
+      console.log(this.imgShow);
     }
-
   }
+  
 
 }

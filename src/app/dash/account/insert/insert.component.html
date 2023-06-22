@@ -11,7 +11,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>User name</label>
-                                <input type="text" formControlName="userName" id="userName" class="form-control form-group-lg" value="{{Username}}" [readonly]="true" > 
+                                <input type="text" formControlName="username" id="username" class="form-control form-group-lg" value="{{username}}" [readonly]="true" > 
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -125,7 +125,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Images</label>
-                                        <input type="file" formControlName="images" id="images" (change)="UploadImage($event)" class="form-control form-group-lg" placeholder="Choose file">
+                                        <input type="file" formControlName="images" id="images" (change)="ShowImage($event)" class="form-control form-group-lg" placeholder="Choose file">
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                             <div>
                                 <div class="col-md-12">
                                     <div class="rev">
-                                        <img  [src]="imgShow" alt="..." width="230" >
+                                        <img  [src]="imgShow" alt="..." width="200" height="300" style="max-width: 250px;max-height: 350px;" >
                                     </div>                                
                                 </div>
                             </div>

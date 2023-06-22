@@ -50,18 +50,25 @@ export class AccountService {
   }
   public registerAdmin(data:Account)
    {
-    return this.httpClient
-    .post<any>('https://localhost:7043/api/authenticate/register-admin',data,{headers: new HttpHeaders({ 
-      'Content-Type': 'application/json'
-     
-   })});
+      console.log(data);
+      return this.httpClient
+      .post<any>('https://localhost:7109/api/Authenticate/register-admin',data,{headers: new HttpHeaders({ 
+         'Content-Type': 'application/json',
+         'Authorization': this.strToken
+      })});
    }
-   public uploadImage(userName:any,data:FormData)
-   {
-    return this.httpClient
-    .post<any>('https://localhost:7109/api/Authenticate/uploadImage?userName='+userName,data,{headers: new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Authorization': this.strToken
-   })});
-   }
+   // public uploadImage(userName:any,data:FormData)
+   // {
+   //  return this.httpClient
+   //  .post<any>('https://localhost:7109/api/Authenticate/uploadImage?userName='+userName,data,{headers: new HttpHeaders({ 
+   //    'Content-Type': 'application/json',
+   //    'Authorization': this.strToken
+   // })});
+   // }
+   public UploadImage(userName:any,data:any){
+      return this.httpClient.post('https://localhost:7109/api/Authenticate/uploadImage?userName='+userName,data,{
+        reportProgress:true,
+        observe:'events'
+      });
+    }
 }
