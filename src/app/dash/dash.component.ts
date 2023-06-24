@@ -28,22 +28,42 @@ export class DashComponent  implements OnInit{
       localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
       this.username = localStorage.getItem('username')!;
       this.name =localStorage.getItem('name')!;
+
       if (typeof window.orientation == 'undefined') {
         if (this.getCookie('openMenu') != null) {
+          var a= document.getElementById('bodyApp');
             if (this.getCookie('openMenu') == 'close') {
-                $('#bodyApp').attr('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
+              
+               a!.setAttribute('class','sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
             } else {
-                $('#bodyApp').attr('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm');
-
+              a!.setAttribute('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm');
             }
         } else {
-            $('#bodyApp').attr('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
+          document.getElementById('bodyApp')!.setAttribute('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
             this.setCookie('openMenu', 'close', 365);
         }
     }
     
   }
-  
+  openClick(){
+    if (typeof window.orientation == 'undefined') {
+      if (this.getCookie('openMenu') != null) {
+          if (this.getCookie('openMenu') == 'close') {
+              console.log('open');
+              document.getElementById('bodyApp')!.setAttribute('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
+              this.setCookie('openMenu', 'open', 365);
+          } else {
+              console.log('close');
+              document.getElementById('bodyApp')!.setAttribute('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm');
+              this.setCookie('openMenu', 'close', 365);
+          }
+      } else {
+          console.log('null');
+          document.getElementById('bodyApp')!.setAttribute('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
+          this.setCookie('openMenu', 'close', 365);
+      }
+  }
+  }
   drop()
   {
     var a= document.getElementById('test');
@@ -112,13 +132,21 @@ export class DashComponent  implements OnInit{
     }
 
   }
+  // formatColLi(){
+
+  //   let li = document.getElementsByTagName("li");
+
+  //   $("li").removeClass("click");
+  //       // Thêm Class
+	// 	$(this).addClass("click");
+  // }
   public logOut()
   {
     
     this.router.navigate(['/Login']);
 
   }
-   setCookie(name:any, value:any, days:any) {
+  public setCookie(name:any, value:any, days:any) {
     var expires = "";
     if (days) {
         var date = new Date();
@@ -137,7 +165,9 @@ export class DashComponent  implements OnInit{
     }
     return null;
 }
-
+ eraseCookie(name:any) {
+  document.cookie = name + '=; Max-Age=-99999999;';
+}
   
 
 }
