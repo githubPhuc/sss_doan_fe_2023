@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotifierService } from '../service/notifier.service';
 import { MenuService } from './menu/menu.service';
+
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
@@ -27,7 +28,19 @@ export class DashComponent  implements OnInit{
       localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
       this.username = localStorage.getItem('username')!;
       this.name =localStorage.getItem('name')!;
-      
+      if (typeof window.orientation == 'undefined') {
+        if (this.getCookie('openMenu') != null) {
+            if (this.getCookie('openMenu') == 'close') {
+                $('#bodyApp').attr('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
+            } else {
+                $('#bodyApp').attr('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm');
+
+            }
+        } else {
+            $('#bodyApp').attr('class', 'sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse');
+            this.setCookie('openMenu', 'close', 365);
+        }
+    }
     
   }
   
@@ -105,6 +118,26 @@ export class DashComponent  implements OnInit{
     this.router.navigate(['/Login']);
 
   }
+   setCookie(name:any, value:any, days:any) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+ getCookie(name:any) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
   
 
 }

@@ -1,0 +1,119 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <b>Search</b>
+                            </h3>
+                        </div>
+                        <div class="card-body pad">
+                            <form [formGroup]="searchForm" >
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Name producer: </label>
+                                            <input type="text" id="name" formControlName="name" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Code producer: </label>
+                                            <input type="text" id="code" formControlName="code" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>{{this.title}}</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-md-4">
+                                <div class="col-lg-3 align-self-center text-right">
+                                    <button id="btInsert" (click)="_InsertView()" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Add record</button>&nbsp;
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border">List record producer</legend>
+                                    <div class="control-group">
+                                        <table id="myTable" class="table table-bordered ">
+                                            <thead>
+                                                <tr>
+                                                    <th width="250px"></th>
+                                                    <th >Id</th>
+                                                    <th>Name producer</th>
+                                                    <th>Code producer</th>
+                                                    <th>Email producer</th>
+                                                    <th>Phone producer</th>
+                                                    <th>City name </th>
+                                                    <th>District name </th>
+                                                    <th>Ward name </th>
+                                                    <th>Location </th>
+                                                    <th>Logo producer</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                
+                                            <tbody>
+                                              
+                                                <tr *ngFor="let item of Data; let i=index">
+                                                    <td align="center">
+                                                        <a (click)="delete(item.id)" class="btn">
+                                                            <i class="far fa-trash-alt"></i> Delete
+                                                        </a>
+                                                        <a (click)="Update(item.id)" class="btn">
+                                                            <i class="far fa-edit"></i> Update
+                                                        </a>
+                                                        <a (click)="StopCooperating(item.id)" class="btn">
+                                                            <i class="fa fa-lock"></i> Stop/Open Cooperating
+                                                        </a>
+                                                    </td>
+                                                    <td>{{item.id}}</td>
+                                                    <td>{{item.nameProduce}}</td>
+                                                    <td>{{item.codeProduce}}</td>
+                                                    <td>{{item.email}}</td>
+                                                    <td>{{item.phone}}</td>
+                                                    <td>{{item.cityName}}</td>
+                                                    <td>{{item.districtName}}</td>
+                                                    <td>{{item.wardsName}}</td>
+                                                    <td>{{item.location}}</td>
+                                                    <td><img  src="{{item.pathLogo}}"
+                                                        class="img-responsive img-thumbnail" style="width:70px;height:70px"></td>
+                                                    <td>{{(item.status==true)?"Đang hợp tác":"Ngừng hợp tác"}}</td>
+                                                    
+                                                </tr>
+                                                  
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+

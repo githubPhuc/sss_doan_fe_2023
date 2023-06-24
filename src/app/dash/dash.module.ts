@@ -26,6 +26,12 @@ import { InsertDistrictComponent } from './district/insert-district/insert-distr
 import { InsertWardsComponent } from './wards/insert-wards/insert-wards.component';
 import { CardDisplayComponent } from './card-display/card-display.component';
 import { InsertCardDisplayComponent } from './card-display/insert-card-display/insert-card-display.component';
+import { DepotComponent } from './depot/depot.component';
+import { InsertDepotComponent } from './depot/insert-depot/insert-depot.component';
+import { UpdateDepotComponent } from './depot/update-depot/update-depot.component';
+import { ProducerComponent } from './producer/producer.component';
+import { InsertProducerComponent } from './producer/insert-producer/insert-producer.component';
+import { UpdateProducerComponent } from './producer/update-producer/update-producer.component';
 
 
 @NgModule({
@@ -52,6 +58,12 @@ import { InsertCardDisplayComponent } from './card-display/insert-card-display/i
     InsertWardsComponent,
     CardDisplayComponent,
     InsertCardDisplayComponent,
+    DepotComponent,
+    InsertDepotComponent,
+    UpdateDepotComponent,
+    ProducerComponent,
+    InsertProducerComponent,
+    UpdateProducerComponent,
   ],
   imports: [
     CommonModule,

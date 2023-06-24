@@ -1,0 +1,56 @@
+<form  [formGroup]="updateForm">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Code Depot</label>
+                                <input type="text" oninput="this.value = this.value.toUpperCase().trim()" pattern="[A-Z0-9_]+"  maxlength="3"  formControlName="codeDepot" id="codeDepot" class="form-control form-group-lg" value=""  > 
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>nameDepot</label>
+                                <input type="text" formControlName="nameDepot" id="nameDepot" class="form-control form-group-lg" placeholder="Please enter your nameDepot" >
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input id="phone" formControlName="phone" pattern="[0-9]+" maxlength="10" type="text" class="form-control form-group-lg" placeholder="Please enter your Phone"/>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Storekeepers</label>
+                                <input id="storekeepers" formControlName="storekeepers" type="text" class="form-control form-group-lg" placeholder="Please enter your storekeepers"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" formControlName="location" id="location"   class="form-control form-group-lg" value="" placeholder="Please enter specific Location" > 
+                            </div>
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+            </div>
+    </mat-dialog-content>
+
+
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave" (click)="onSubmitInsert(updateForm)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
+        </div>
+    </div> 
+</form>

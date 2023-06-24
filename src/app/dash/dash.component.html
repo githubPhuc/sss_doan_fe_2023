@@ -41,7 +41,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="openMenu" class="nav-link" data-widget="pushmenu" href="#" role="button"></a>
+                    <a id="openMenu" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
             <ul id="formatNamePage"><b>Manage Admin</b></ul>
@@ -230,6 +230,24 @@
 
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Depot']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Depot
+                                        </p>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Producer']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Producer
+                                        </p>
+
+                                    </a>
+                                </li>
 							
       
                             </ul>
@@ -346,6 +364,8 @@
     <script src="../../assets/Content/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
     <!-- TeamCode -->
     <script src="../../assets/Scripts/TeamCode.js"></script>
-   
+   <script>
+    
+   </script>
 </body>
 </html>
