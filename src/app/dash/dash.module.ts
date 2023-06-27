@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 
 import { DashRoutingModule } from './dash-routing.module';
 import { DashComponent } from './dash.component';
@@ -71,7 +72,7 @@ import { UpdateProducerComponent } from './producer/update-producer/update-produ
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    
+    ToastrModule.forRoot(),
     
   ],
   bootstrap: [DashComponent]

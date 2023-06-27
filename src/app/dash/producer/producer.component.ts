@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr'
+import { Subject } from 'rxjs/internal/Subject';
+
 import { NotifierService } from 'src/app/service/notifier.service';
 import { InsertProducerComponent } from './insert-producer/insert-producer.component';
 import { ProducerService } from './producer.service';
@@ -14,11 +17,17 @@ import { UpdateProducerComponent } from './update-producer/update-producer.compo
 })
 export class ProducerComponent  implements OnInit {
   closeResult = '';
+
   constructor(private producerService:ProducerService,
               private toastr:NotifierService,
               private router:Router,
               private dialog:MatDialog,
+              private alert: ToastrService,
+              
       ) { }
+      // dtoptions: DataTables.Settings = {};
+      dtTrigger:Subject<any>=new Subject<any>();
+
     Data:any;
     token!:string;
     tk:any;
@@ -43,6 +52,30 @@ export class ProducerComponent  implements OnInit {
     })
       this.title="Directory producer"
 
+      
+      // this.dtoptions = {
+      //   destroy: true, 
+      //     lengthMenu: [5, 10, 25, 50, 75, 100],
+      //     columnDefs: [
+      //         {
+      //             "targets": [0,1],
+      //             orderable: false
+      //         },
+      //     ],
+      //     info: false,
+      //     processing: false,
+      //     serverSide: false,
+      //     bFilter: true,
+      //     bPaginate: true,
+      //     bLengthChange: true,
+      //     bInfo: true,
+      //     responsive: true,
+      //     lengthChange: true,
+      //     autoWidth: false,
+      //     stateSave: true,
+      //     buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+  
+      // };
      
   }
 
