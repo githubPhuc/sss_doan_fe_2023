@@ -33,6 +33,15 @@ import { UpdateDepotComponent } from './depot/update-depot/update-depot.componen
 import { ProducerComponent } from './producer/producer.component';
 import { InsertProducerComponent } from './producer/insert-producer/insert-producer.component';
 import { UpdateProducerComponent } from './producer/update-producer/update-producer.component';
+import { UpdateAccountComponent } from './account/update-account/update-account.component';
+import { InsertDepartmentComponent } from './department/insert-department/insert-department.component';
+import { InsertCategoryComponent } from './category-product/insert-category/insert-category.component';
+import { CategoryProductComponent } from './category-product/category-product.component';
+import { InsertProductComponent } from './product/insert-product/insert-product.component';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { ProductSaleComponent } from './product-sale/product-sale.component';
+import { InsertSaleComponent } from './product-sale/insert-sale/insert-sale.component';
+import { UpdateSaleComponent } from './product-sale/update-sale/update-sale.component';
 
 
 @NgModule({
@@ -65,6 +74,15 @@ import { UpdateProducerComponent } from './producer/update-producer/update-produ
     ProducerComponent,
     InsertProducerComponent,
     UpdateProducerComponent,
+    UpdateAccountComponent,
+    InsertDepartmentComponent,
+    InsertCategoryComponent,
+    CategoryProductComponent,
+    InsertProductComponent,
+    UpdateProductComponent,
+    ProductSaleComponent,
+    InsertSaleComponent,
+    UpdateSaleComponent
   ],
   imports: [
     CommonModule,

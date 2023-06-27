@@ -134,7 +134,7 @@ export class InsertProducerComponent implements OnInit {
       {
         this.producerService.uploadImage( this.dataProducer.codeProduce,formdata).subscribe(result => {
           this.toastr.ShowSuccess('Success!',dataT.message);
-          //location.reload();
+          location.reload();
         });
       }
       else{
@@ -152,7 +152,6 @@ export class InsertProducerComponent implements OnInit {
     reader.readAsDataURL(event.target.files[0]);
     reader.onload=()=>{
       this.imgShow=reader.result;
-      console.log(this.imgShow);
     }
   }
   

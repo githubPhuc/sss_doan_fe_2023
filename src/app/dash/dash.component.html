@@ -85,8 +85,8 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <nav class="mt-2" >
+                    <ul class="nav nav-pills nav-sidebar flex-column" style="overflow:inherit" data-widget="treeview" role="menu" data-accordion="false">
                         <li  class="nav-link ">
                             <a [routerLink]="['/admin/Home']" class="nav-item" style=" padding-left:30px ;">  
                                <img src="../../assets/img/PT STORE_Ver1.png"[height]="170"[width]="190" />
@@ -154,6 +154,14 @@
                                         <i class="far fa-circle nav-icon"> </i> 
                                         <p>
                                             Directory Product
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" [routerLink]="['/admin/Category']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Category
                                         </p>
                                     </a>
                                 </li>
@@ -250,6 +258,24 @@
                                         <i class="far fa-circle nav-icon"> </i> 
                                         <p>
                                             Directory Producer
+                                        </p>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/Department']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Department
+                                        </p>
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [routerLink]="['/admin/ProductSale']">
+                                        <i class="far fa-circle nav-icon"> </i> 
+                                        <p>
+                                            Directory Product Sale
                                         </p>
 
                                     </a>

@@ -1,0 +1,76 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>{{this.title}}</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-md-4">
+                                <div class="col-lg-3 align-self-center text-right">
+                                    <button id="btInsert" (click)="_InsertView()" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Add record</button>&nbsp;
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border">List record depot</legend>
+                                    <div class="control-group">
+                                        <table id="myTable" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="180px"></th>
+                                                    <th>Id</th>
+                                                    <th>nameSale</th>
+                                                    <th>descriptionSale</th>
+                                                    <th>marth </th>
+                                                    <th>Unit </th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                
+                                            <tbody>
+                                              
+                                                <tr *ngFor="let item of saleData; let i=index">
+                                                    <td >
+                                                       <div class="row"> 
+                                                            <a (click)="delete(item.id)" class="btn">
+                                                                <i class="far fa-trash-alt"></i> Delete
+                                                            </a>
+                                                            <a (click)="Update(item.id)" class="btn">
+                                                                <i class="far fa-edit"></i> Update
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>{{item.id}}</td>
+                                                    <td>{{item.nameSale}}</td>
+                                                    <td>{{item.descriptionSale}}</td>
+                                                    <td>{{item.marth}}</td>
+                                                    <td>{{item.unit}}</td>
+                                                    <td>{{item.status}}</td>
+                                                   
+                                                    
+                                                </tr>
+                                                  
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+

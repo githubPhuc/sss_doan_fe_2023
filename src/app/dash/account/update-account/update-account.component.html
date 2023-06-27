@@ -1,0 +1,154 @@
+<form  [formGroup]="UpdateForm">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+            
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>User name</label>
+                                <input type="text" formControlName="userName" id="userName" class="form-control form-group-lg"  [readonly]="true" > 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" formControlName="passwork" id="passwork" class="form-control form-group-lg" placeholder="Please enter your Password" >
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select class="form-control form-group-lg"id="idDepartment" formControlName="idDepartment"> 
+                                    <option selected disabled value="false">-- List item Department --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataDepartment; let i=index">{{item.codeDepartment}} || {{item.nameDepartment}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>City</label>    
+                                <select class="form-control form-group-lg" (ngModelChange)="onChangeCity($event)" id="city" formControlName="city"> 
+                                    <option selected disabled value="false">-- List item City --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataCity; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>District</label>
+                              
+                                <select class="form-control form-group-lg" (ngModelChange)="onChangeDistrict($event)" id="district" formControlName="district"> 
+                                    <option selected disabled value="false">-- List item district --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataDistrict; let i=index">{{item.id}}||{{item.nameDistrict}}</option>
+                                </select>
+                             
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Wards</label>
+                                <select class="form-control form-group-lg" id="wards" formControlName="wards" > 
+                                    <option selected disabled value="false">-- List item wards --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataWards; let i=index">{{item.id}}||{{item.nameWards}}</option>
+                                </select>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Home address</label>
+                                <input type="text" formControlName="shippingAddress" id="shippingAddress" class="form-control form-group-lg" value="" placeholder="Please enter specific home address" > 
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                         <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" formControlName="email" id="email" class="form-control form-group-lg" value="" placeholder="Please enter your email" > 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>phoneNumber</label>
+                                    <input type="text" formControlName="phoneNumber" id="phoneNumber" class="form-control form-group-lg" value="" placeholder="Please enter your phone number" > 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>full name</label>
+                                    <input type="text" formControlName="fullname" id="fullname" class="form-control form-group-lg" placeholder="Please enter your phone full name" >
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" formControlName="email" id="email" class="form-control form-group-lg" value="" placeholder="Please enter your email" > 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>phoneNumber</label>
+                                        <input type="text" formControlName="phoneNumber" id="phoneNumber" class="form-control form-group-lg" value="" placeholder="Please enter your phone number" > 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>full name</label>
+                                        <input type="text" formControlName="fullname" id="fullname" class="form-control form-group-lg" placeholder="Please enter your phone full name" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Images</label>
+                                        <input type="file" formControlName="images" id="images" (change)="ShowImage($event)" class="form-control form-group-lg" placeholder="Choose file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <div class="col-md-12">
+                                    <div class="rev">
+                                        <img  [src]="imgShow" alt="..." width="200" height="300" style="max-width: 250px;max-height: 350px;" >
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </mat-dialog-content>
+
+
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave" (click)="onSubmitInsert(UpdateForm)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
+        </div>
+    </div> 
+</form>

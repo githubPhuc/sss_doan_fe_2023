@@ -18,15 +18,15 @@ export class ColorService {
      })});
 
   }
-  public PostColorProducts(colorProduct:ColorProduct){
+  public insert(colorProduct:ColorProduct){
  
-    return this.httpClient.post<any>('https://localhost:7109/api/ColorProducts', colorProduct,{headers: new HttpHeaders({ 
+    return this.httpClient.post<any>('https://localhost:7109/api/ColorProducts/insert', colorProduct,{headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.token
    })});
   }
-  public DeleteColorProducts(id:number){
-    return this.httpClient.post<any>('https://localhost:7109/api/ColorProducts/DeleteCpu?id='+id, id,{headers: new HttpHeaders({ 
+  public Delete(id:number){
+    return this.httpClient.post<any>('https://localhost:7109/api/ColorProducts/Delete?id='+id, {headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.token
    })});

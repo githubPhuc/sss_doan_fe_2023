@@ -6,6 +6,7 @@ import { NotifierService } from 'src/app/service/notifier.service';
 import { Account } from './Account';
 import { AccountService } from './account.service';
 import { InsertAccountComponent } from './insert/insert.component';
+import { UpdateAccountComponent } from './update-account/update-account.component';
 
 @Component({
   selector: 'app-account',
@@ -57,6 +58,20 @@ export class AccountComponent implements OnInit {
       }
     });
   }
+  // go to view insert
+  public Update(UserName:string)
+  {
+    console.log(UserName)
+    this.dialog.open(UpdateAccountComponent,{
+      data : {
+        enterAnimationDuration: '1000ms',
+        exitAnimationDuration: '600ms',
+        name : 'Update Producer',
+        UserName:UserName,
+      }
+    });
+    
+  }
 
   
 //----------Search from-------------//
@@ -71,12 +86,12 @@ export class AccountComponent implements OnInit {
     })
   }
 //-----------Lock account-------------//
-  public lockAccount(id:string)
+  public lockAccount(userName:string)
   {
     if(window.confirm('Do you want to lock this account ?'))
     {
-      console.log(id);
-      this.accountService.lockAccount(id).subscribe((dataT: { status: any; message: any; }) => {
+      console.log(userName);
+      this.accountService.lockAccount(userName).subscribe((dataT: { status: any; message: any; }) => {
         if(dataT.status=="Success")
         {
           this.toastr.ShowSuccess('Success!',dataT.message);

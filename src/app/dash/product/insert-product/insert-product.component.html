@@ -1,0 +1,164 @@
+
+<form  [formGroup]="InsertForm">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+            
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>nameProduct</label>
+                                <input type="text"  formControlName="nameProduct" id="nameProduct" class="form-control form-group-lg" placeholder="Please enter your name Product" > 
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Producer</label>
+                                <select class="form-control form-group-lg" id="idProducer" formControlName="idProducer"> 
+                                    <option selected disabled value="false">-- List item Category --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataProducer; let i=index">{{item.id}}||{{item.nameProduce}}</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select class="form-control form-group-lg" id="idCategory" formControlName="idCategory"> 
+                                    <option selected disabled value="false">-- List item Category --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataCategory; let i=index">{{item.id}}||{{item.nameCategory}}</option>
+                                </select>
+                            </div> 
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                               <textarea formControlName="Description" id="Description" class="form-control form-group-lg" rows="2" placeholder="Please enter your Description"></textarea>
+                                <!-- <input type="text" formControlName="Description" id="Description" class="form-control form-group-lg" placeholder="Please enter your Description" > -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>CPU Product</label>
+                                <select class="form-control form-group-lg" id="CPUProduct" formControlName="CPUProduct"> 
+                                    <option selected disabled value="false">-- List item Cpu --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataCpu; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Ram Product</label>
+                                <select class="form-control form-group-lg" id="RamProduct" formControlName="RamProduct"> 
+                                    <option selected disabled value="false">-- List item Ram Product --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataRam; let i=index">{{item.id}}||{{item.nameRam}}</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>SSD Product</label>
+                                <select class="form-control form-group-lg" id="SSDProduct" formControlName="SSDProduct"> 
+                                    <option selected disabled value="false">-- List item SSD Product --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataSsd; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div> 
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Display Product</label>
+                                <select class="form-control form-group-lg" id="DisplayProduct" formControlName="DisplayProduct"> 
+                                    <option selected disabled value="false">-- List item Display Product --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataDisplay; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Card Display</label>
+                                <select class="form-control form-group-lg" id="CardDisplay" formControlName="CardDisplay"> 
+                                    <option selected disabled value="false">-- List item Card Display --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataCardDisplay; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Color Product</label>
+                                <select class="form-control form-group-lg" id="ColorProduct" formControlName="ColorProduct"> 
+                                    <option selected disabled value="false">-- List item Color Product --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataColor; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div> 
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input class="form-control form-group-lg" id="price" formControlName="price" placeholder="Please enter your price" >
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Accessories Included</label>
+                                <input class="form-control form-group-lg" id="AccessoriesIncluded" formControlName="AccessoriesIncluded" placeholder="Please enter your Accessories Included" >
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>idSale</label>
+                                <select class="form-control form-group-lg" id="idSale" formControlName="idSale"> 
+                                    <option selected disabled value="false">-- List item Sale --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataSale; let i=index">{{item.id}}||{{item.nameSale}}</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>MainProduct</label>
+                                <input class="form-control form-group-lg" id="MainProduct" formControlName="MainProduct" placeholder="Please enter your Main Product" >
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>portConnection</label>
+                                <input class="form-control form-group-lg" id="portConnection" formControlName="portConnection" placeholder="Please enter your portConnection " >
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-4">
+                            <div class="form-group">
+                                <label>idSale</label>
+                                <input class="form-control form-group-lg" id="portConnection" formControlName="portConnection" placeholder="Please enter your portConnection " >
+                            </div>
+                        </div> -->
+                       
+                    </div>
+                   
+                </div>
+            </div>
+    </mat-dialog-content>
+
+
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave" (click)="onSubmitInsert(InsertForm)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
+        </div>
+    </div> 
+</form>

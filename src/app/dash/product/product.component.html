@@ -1,1 +1,139 @@
-<p>product works!</p>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Section search -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <b>Search</b>
+                            </h3>
+                        </div>
+                        <div class="card-body pad">
+                            <form [formGroup]="searchForm" >
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>nameProduct: </label>
+                                            <input type="text" id="nameProduct" formControlName="nameProduct" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>nameProduce: </label>
+                                            <input type="text" id="nameProduce" formControlName="nameProduce" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>nameRam: </label>
+                                            <input type="text" id="nameRam" formControlName="nameRam" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>nameCpu: </label>
+                                            <input type="text" id="nameCpu" formControlName="nameCpu" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>nameDisplay: </label>
+                                            <input type="text" id="nameDisplay" formControlName="nameDisplay" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>nameColor: </label>
+                                            <input type="text" id="nameColor" formControlName="nameColor" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>nameCard: </label>
+                                            <input type="text" id="nameCard" formControlName="nameCard" (input)="Search(searchForm)" class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+        <!--Section data table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <b>{{this.title}}</b>
+                        </h3>
+                    </div>
+                    <div class="card-body pad">
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-md-4">
+                                <div class="col-lg-3 align-self-center text-right">
+                                    <button id="btInsert" (click)="_InsertView()" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Add record</button>&nbsp;
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 table-body table-responsive">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border">List record producer</legend>
+                                    <div class="control-group">
+                                        <!-- <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" id="myTable" class="table table-bordered "> -->
+                                        <table id="myTable" class="table table-bordered ">
+                                            <thead>
+                                                <tr>
+                                                    <th width="250px"></th>
+                                                    <th >Id</th>
+                                                    <th>Name product</th>
+                                                    <th>Code product</th>
+                                                    <th>name Produce</th>
+                                                    <th>name Category</th>
+                                                    <th>Sale</th>
+                                                    <th>status </th>
+                                                </tr>
+                                            </thead>
+                                
+                                            <tbody>
+                                              
+                                                <tr *ngFor="let item of Data; let i=index">
+                                                    <td align="center">
+                                                        <a (click)="delete(item.id)" class="btn">
+                                                            <i class="far fa-trash-alt"></i> Delete
+                                                        </a>
+                                                        <a (click)="Update(item.id)" class="btn">
+                                                            <i class="far fa-edit"></i> Update
+                                                        </a>
+                                                      
+                                                    </td>
+                                                    <td>{{item.id}}</td>
+                                                    <td>{{item.nameproduct}}</td>
+                                                    <td>{{item.codeproduct}}</td>
+                                                    <td>{{item.nameProduce}}</td>
+                                                    <td>{{item.nameCategory}}</td>
+                                                    <td>{{item.idSale}}</td>
+                                                    <td>{{item.status}}</td>
+                                                    
+                                                </tr>
+                                                  
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!--End section data table-->
+    </div>
+</section>
+
+

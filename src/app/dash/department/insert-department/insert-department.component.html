@@ -1,0 +1,32 @@
+<form  [formGroup]="InsertForm">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+            
+        <div class="row" style="margin-bottom:5px">
+            <div class="col-md-12 col-sm-4">
+                <div class="row" style="margin-bottom:5px">
+                    <label class="col-md-3 col-sm-3">Code Department:</label>
+                    <div class="col-md-9 col-sm-9 ten">
+                        <input value="" oninput="this.value = this.value.toUpperCase().trim()" pattern="[A-Z0-9_]+" maxlength="3" class="form-control" type="text" id="codeDepartment" formControlName="codeDepartment" />
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:5px">
+                    <label class="col-md-3 col-sm-3">Name Department:</label>
+                    <div class="col-md-9 col-sm-9 ten">
+                        <input value="" class="form-control" type="text" id="nameDepartment" formControlName="nameDepartment" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave" (click)="InsertCity(InsertForm)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
+        </div>
+    </div> 
+</form>

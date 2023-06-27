@@ -33,6 +33,7 @@ export class ProducerService {
 
   }
   public GetListById(id: number) {
+    console.log(id);
     return this.httpClient
       .get<any>('https://localhost:7109/api/Producers/GetListById?id=' + id, {
         headers: new HttpHeaders({
@@ -45,6 +46,15 @@ export class ProducerService {
   public Insert(model: Producer) {
     return this.httpClient
       .post<any>('https://localhost:7109/api/Producers/Insert', model, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.strToken
+        })
+      });
+  }
+  public Update(model: Producer,id:number) {
+    return this.httpClient
+      .post<any>('https://localhost:7109/api/Producers/Update?id='+id, model, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': this.strToken

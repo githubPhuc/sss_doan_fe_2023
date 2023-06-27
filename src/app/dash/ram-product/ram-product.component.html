@@ -24,6 +24,9 @@
                                         <label>Technical Data: </label>
                                       
                                         <select formControlName="technicalData" id="technicalData" class="form-control form-control-xs">
+                                            <option value="64">8</option>
+                                            <option value="64">16</option>
+                                            <option value="64">32</option>
                                             <option value="64">64</option>
                                             <option value="128">128</option>
                                             <option value="256">256</option>
@@ -76,7 +79,7 @@
                         <div class="row">
                             <div class="col-md-12 table-body table-responsive">
                                 <fieldset class="scheduler-border">
-                                    <legend class="scheduler-border">Danh sách Ssd</legend>
+                                    <legend class="scheduler-border">List record RAM</legend>
                                     <div class="control-group">
                                         <table id="myTable-SanPham" class="table table-bordered">
                                             <thead>
@@ -84,8 +87,8 @@
                                                     <th width="100px"></th>
                                                     <th >STT</th>
                                                     <th>Id</th>
-                                                    <th>Ssd name  </th>
-                                                    <th>Ssd technical </th>
+                                                    <th>Ram name  </th>
+                                                    <th>Ram technical </th>
                                                     <th>Unit </th>
                                                 </tr>
                                             </thead>
@@ -103,7 +106,7 @@
                                                         </td>
                                                     <td>{{i+1}}</td>
                                                      <td>{{item.id}}  </td>
-                                                     <td>{{item.name}}  </td>
+                                                     <td>{{item.nameRam}}  </td>
                                                      <td>{{item.technicalData}}  </td>
                                                      <td>{{item.unit}}  </td>
                                                 </tr>

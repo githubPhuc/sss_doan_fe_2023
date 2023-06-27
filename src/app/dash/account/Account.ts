@@ -1,6 +1,7 @@
 
 export class Account {
     constructor(
+        public Id:string,
         public fullname :string,
         public images :string,
         public accoutType :string,

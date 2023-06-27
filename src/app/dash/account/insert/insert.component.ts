@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NotifierService } from 'src/app/service/notifier.service';
 import { CityService } from '../../city/city.service';
+import { DepartmentService } from '../../department/department.service';
 import { DistrictService } from '../../district/district.service';
 import { WardsService } from '../../wards/wards.service';
 import { Account } from '../Account';
@@ -23,6 +24,7 @@ export class InsertAccountComponent implements OnInit {
                                         private cityService:CityService,
                                         private wardsService:WardsService,
                                         private accountService:AccountService,
+                                        private departmentService:DepartmentService,
                                         private toastr:NotifierService,
                                         private router:Router,
                                         ) {
@@ -31,6 +33,7 @@ export class InsertAccountComponent implements OnInit {
   dataCity:any;
   dataDistrict:any;
   dataWards:any;
+  dataDepartment:any;
   dataAccount:any;
   numDataCity!: number;
   username:any;
@@ -42,6 +45,9 @@ export class InsertAccountComponent implements OnInit {
   ngOnInit(): void {
     this.accountService.GetUserName().subscribe(res=>{
       this.username=res.acc;
+    })
+    this.departmentService.GetListComboBox().subscribe(res=>{
+      this.dataDepartment=res.data;
     })
     this.cityService.getCities("").subscribe(res=>{
       this.dataCity=res.acc;
@@ -67,14 +73,14 @@ export class InsertAccountComponent implements OnInit {
     wards: new FormControl(''),
     userName: new FormControl(''),
     fullname: new FormControl(''),
-    accoutType: new FormControl(''),
+    Department: new FormControl(''),
     shippingAddress: new FormControl(''),
     Password: new FormControl(''),
     email: new FormControl(''),
     phoneNumber: new FormControl(''),
     images: new FormControl(''),
   });
-  dataAcc=new Account("","","",0,"",0,"",0,"","","",false,"","","","");
+  dataAcc=new Account("","","","",0,"",0,"",0,"","","",false,"","","","");
   
   onSubmitInsert(form:FormGroup)
   {
@@ -89,6 +95,11 @@ export class InsertAccountComponent implements OnInit {
       this.toastr.ShowError('Passwords longer than 3 characters!',' Please check again!');
       return;
   
+    }
+    if(form.value.Department.length<1)
+    {
+      this.toastr.ShowError('Department is null!',' Please check again!');
+      return;
     }
     if(form.value.phoneNumber.length>10||form.value.phoneNumber.length<10)
     {
@@ -129,15 +140,18 @@ export class InsertAccountComponent implements OnInit {
     this.dataAcc.cyti=form.value.city;
     this.dataAcc.wards=form.value.wards;
     this.dataAcc.district=form.value.district;
+    this.dataAcc.idDepartment=form.value.Department;
     console.log(this.dataAcc);
     let formdata = new FormData();
     formdata.append("file", this.file, this.username)
     this.accountService.registerAdmin(this.dataAcc).subscribe((dataT: { status: any; message: any; }) => {
       if(dataT.status=="Success")
-      {
+      {console.log(this.file);
         this.accountService.UploadImage(this.username,formdata).subscribe(result => {
           this.toastr.ShowSuccess('Success!',dataT.message);
-          location.reload(); 
+          console.log(result);
+
+          // location.reload(); 
         });
       }
       else{

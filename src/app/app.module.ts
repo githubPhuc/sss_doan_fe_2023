@@ -12,10 +12,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import {ToastrModule} from 'ngx-toastr';
+import { DepartmentComponent } from './dash/department/department.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    DepartmentComponent,
   ],
   imports: [
     BrowserModule,

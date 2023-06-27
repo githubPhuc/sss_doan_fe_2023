@@ -22,10 +22,10 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Accout Type</label>
-                                <select id="accoutType" formControlName="accoutType"  class="form-control form-group-lg">
-                                    <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
+                                <label>Department</label>
+                                <select class="form-control form-group-lg"id="Department" formControlName="Department"> 
+                                    <option selected disabled value="false">-- List item Department --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataDepartment; let i=index">{{item.codeDepartment}}||{{item.nameDepartment}}</option>
                                 </select>
                             </div>
                         </div>

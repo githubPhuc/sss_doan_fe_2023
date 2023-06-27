@@ -64,7 +64,7 @@ export class ColorProductComponent implements OnInit {
     this.data.Name=form.value.Name;
     this.data.code=form.value.code;
     console.log(this.data);
-    this.colorService.PostColorProducts(this.data).subscribe((dataT: { status: any; message: any; }) => {
+    this.colorService.insert(this.data).subscribe((dataT: { status: any; message: any; }) => {
         if(dataT.status=="Success")
         {
           this.toastr.ShowSuccess('Success!',dataT.message);
@@ -83,7 +83,7 @@ export class ColorProductComponent implements OnInit {
     if(window.confirm('Do you want to clear this cpu ?'))
     {
       console.log(id);
-      this.colorService.DeleteColorProducts(id).subscribe((dataT: { status: any; message: any; }) => {
+      this.colorService.Delete(id).subscribe((dataT: { status: any; message: any; }) => {
         if(dataT.status=="Success")
         {
           this.toastr.ShowSuccess('Success!',dataT.message);

@@ -19,6 +19,9 @@ import { DistrictComponent } from './district/district.component';
 import { CardDisplayComponent } from './card-display/card-display.component';
 import { DepotComponent } from './depot/depot.component';
 import { ProducerComponent } from './producer/producer.component';
+import { DepartmentComponent } from './department/department.component';
+import { CategoryProductComponent } from './category-product/category-product.component';
+import { ProductSaleComponent } from './product-sale/product-sale.component';
 
 const routes: Routes = [
   {
@@ -50,6 +53,9 @@ const routes: Routes = [
   { path: 'CardDisplay', component: CardDisplayComponent },
   { path: 'Depot', component: DepotComponent },
   { path: 'Producer', component: ProducerComponent },
+  { path: 'Department', component: DepartmentComponent },
+  { path: 'Category', component: CategoryProductComponent },
+  { path: 'ProductSale', component: ProductSaleComponent },
 ];
 
 @NgModule({

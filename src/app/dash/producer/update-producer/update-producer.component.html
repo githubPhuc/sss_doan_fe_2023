@@ -1,1 +1,118 @@
-<p>update-producer works!</p>
+
+<form  [formGroup]="UpdateForm">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+            
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Code producer</label>
+                                <input type="text" oninput="this.value = this.value.toUpperCase().trim()" pattern="[A-Z0-9_]+" maxlength="3" formControlName="codeProduce" id="codeProduce" class="form-control form-group-lg" placeholder="Please enter your Code producer" > 
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Name producer</label>
+                                <input type="text" formControlName="nameProduce" id="nameProduce" class="form-control form-group-lg" placeholder="Please enter your name Produce" >
+                            </div>
+                        </div>
+                       
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>City</label>    
+                                <select class="form-control form-group-lg" (ngModelChange)="onChangeCity($event)" id="city" formControlName="city"> 
+                                    <option selected disabled value="false">-- List item City --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataCity; let i=index">{{item.id}}||{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>District</label>
+                              
+                                <select class="form-control form-group-lg" (ngModelChange)="onChangeDistrict($event)" id="district" formControlName="district"> 
+                                    <option selected disabled value="false">-- List item district --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataDistrict; let i=index">{{item.id}}||{{item.nameDistrict}}</option>
+                                </select>
+                             
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Wards</label>
+                                <select class="form-control form-group-lg" id="wards" formControlName="wards" > 
+                                    <option selected disabled value="false">-- List item wards --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataWards; let i=index">{{item.id}}||{{item.nameWards}}</option>
+                                </select>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" formControlName="location" id="location" class="form-control form-group-lg" value="" placeholder="Please enter specific home address" > 
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" formControlName="email" id="Email" class="form-control form-group-lg" value="" placeholder="Please enter your email" > 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Phone number</label>
+                                        <input type="text" formControlName="phone" id="Phone" class="form-control form-group-lg" value="" placeholder="Please enter your phone number" > 
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Logo Producer</label>
+                                        <input type="file" formControlName="logoProducer" id="logoProducer" (change)="ShowImage($event)" class="form-control form-group-lg" placeholder="Choose file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <div class="col-md-12">
+                                    <div class="rev">
+                                        <img  [src]="imgShow" alt="..." width="200" height="300" style="max-width: 250px;max-height: 350px;" >
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </mat-dialog-content>
+
+
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave" (click)="onSubmitInsert(UpdateForm)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
+        </div>
+    </div> 
+</form>
