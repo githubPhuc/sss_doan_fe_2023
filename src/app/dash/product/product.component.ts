@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { NotifierService } from 'src/app/service/notifier.service';
+import { DetailComponent } from './detail/detail.component';
 import { InsertProductComponent } from './insert-product/insert-product.component';
 import { ProductService } from './product.service';
 import { UpdateProductComponent } from './update-product/update-product.component';
@@ -123,7 +124,7 @@ export class ProductComponent  implements OnInit {
   {
     if(window.confirm('Do you want to remove this manufacturer with id equal to '+id+' ?'))
     {
-      this.productService.Delete(id).subscribe((dataT: { status: any; message: any; }) => {
+      this.productService.DeleteProduct(id).subscribe((dataT: { status: any; message: any; }) => {
         if(dataT.status=="Success")
         {
           this.toastr.ShowSuccess('Success!',dataT.message);
@@ -136,6 +137,20 @@ export class ProductComponent  implements OnInit {
        
       });    
     }
+    
+  }
+  public Detail(id:number)
+  {
+   
+    this.dialog.open(DetailComponent,{
+      data : {
+        enterAnimationDuration: '1000ms',
+        exitAnimationDuration: '600ms',
+        name : 'Detail Product',
+        id:id,
+      }
+    });  
+    
     
   }
  

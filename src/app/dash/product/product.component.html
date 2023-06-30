@@ -82,13 +82,13 @@
                         <div class="row">
                             <div class="col-md-12 table-body table-responsive">
                                 <fieldset class="scheduler-border">
-                                    <legend class="scheduler-border">List record producer</legend>
+                                    <legend class="scheduler-border">List record Product</legend>
                                     <div class="control-group">
                                         <!-- <table datatable [dtOptions]="dtoptions" [dtTrigger]="dtTrigger" id="myTable" class="table table-bordered "> -->
                                         <table id="myTable" class="table table-bordered ">
                                             <thead>
                                                 <tr>
-                                                    <th width="250px"></th>
+                                                    <th width="300px"></th>
                                                     <th >Id</th>
                                                     <th>Name product</th>
                                                     <th>Code product</th>
@@ -109,7 +109,9 @@
                                                         <a (click)="Update(item.id)" class="btn">
                                                             <i class="far fa-edit"></i> Update
                                                         </a>
-                                                      
+                                                        <a (click)="Detail(item.id)" class="btn">
+                                                            <i class="far fa-list-alt"></i> Detail
+                                                        </a>
                                                     </td>
                                                     <td>{{item.id}}</td>
                                                     <td>{{item.nameproduct}}</td>

@@ -36,6 +36,17 @@ export class ProductService {
       });
 
   }
+  public GetProductOnIdDetail(id: number) {
+    console.log(id);
+    return this.httpClient
+      .get<any>('https://localhost:7109/api/Products/GetProductOnIdDetail?id=' + id, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.strToken
+        })
+      });
+
+  }
   
   public Insert(model: Product) {
     return this.httpClient
@@ -70,8 +81,8 @@ export class ProductService {
       observe: 'events'
     });
   }
-  public Delete(id:number){
-    return this.httpClient.post<any>('https://localhost:7109/api/Product/Delete?id='+id, {headers: new HttpHeaders({ 
+  public DeleteProduct(id:number){
+    return this.httpClient.post<any>('https://localhost:7109/api/Products/DeleteProduct?id='+id, {headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.token
    })});
