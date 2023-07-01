@@ -1,23 +1,25 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NotifierService } from 'src/app/service/notifier.service';
+import { InsertImageComponent } from '../insert-image/insert-image.component';
 import { ProductService } from '../product.service';
 
+
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-image',
+  templateUrl: './image.component.html',
+  styleUrls: ['./image.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class ImageComponent implements OnInit {
 
   NameWeb;
   id;
-  dataProduct:any;
+  dataImage:any;
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
                                         
                                         private productService:ProductService,
-                                      
+                                        private dialog:MatDialog,
                                         private toastr:NotifierService,
                                         private router:Router,
                                         ) {
@@ -26,10 +28,20 @@ export class DetailComponent implements OnInit {
                                         }
   
   ngOnInit(): void {
-    this.productService.GetProductOnIdDetail(this.id).subscribe(res => {
-      this.dataProduct=res.data;
-      console.log(this.dataProduct);
-      console.log(res);
+    this.productService.ListImages(this.id).subscribe(res=>{
+      this.dataImage=res.data;
+      console.log(this.dataImage);
     })
+  }
+  public insertImage()
+  {
+    this.dialog.open(InsertImageComponent,{
+      data : {
+        enterAnimationDuration: '1000ms',
+        exitAnimationDuration: '600ms',
+        name : 'Detail Images',
+        id:this.id,
+      }
+    });  
   }
 }

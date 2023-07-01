@@ -47,6 +47,17 @@ export class ProductService {
       });
 
   }
+  public ListImages(id: number) {
+    console.log(id);
+    return this.httpClient
+      .get<any>('https://localhost:7109/api/Products/ListImages?idProduct=' + id, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.strToken
+        })
+      });
+
+  }
   
   public Insert(model: Product) {
     return this.httpClient

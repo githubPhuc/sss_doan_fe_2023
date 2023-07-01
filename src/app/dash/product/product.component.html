@@ -88,7 +88,7 @@
                                         <table id="myTable" class="table table-bordered ">
                                             <thead>
                                                 <tr>
-                                                    <th width="300px"></th>
+                                                    <th width="250px"></th>
                                                     <th >Id</th>
                                                     <th>Name product</th>
                                                     <th>Code product</th>
@@ -111,6 +111,9 @@
                                                         </a>
                                                         <a (click)="Detail(item.id)" class="btn">
                                                             <i class="far fa-list-alt"></i> Detail
+                                                        </a>
+                                                        <a (click)="Images(item.id)" class="btn">
+                                                            <i class="far fa-file-image"></i>  Images
                                                         </a>
                                                     </td>
                                                     <td>{{item.id}}</td>

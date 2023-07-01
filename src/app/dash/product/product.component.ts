@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { NotifierService } from 'src/app/service/notifier.service';
 import { DetailComponent } from './detail/detail.component';
+import { ImageComponent } from './image/image.component';
 import { InsertProductComponent } from './insert-product/insert-product.component';
 import { ProductService } from './product.service';
 import { UpdateProductComponent } from './update-product/update-product.component';
@@ -152,6 +153,17 @@ export class ProductComponent  implements OnInit {
     });  
     
     
+  }
+  public Images(id:number)
+  {
+    this.dialog.open(ImageComponent,{
+      data : {
+        enterAnimationDuration: '1000ms',
+        exitAnimationDuration: '600ms',
+        name : 'Detail Images',
+        id:id,
+      }
+    });  
   }
  
 }

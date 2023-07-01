@@ -1,0 +1,34 @@
+
+
+<form  >
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Logo Producer</label>
+                    <input type="file" formControlName="logoProducer" id="images"  class="form-control form-group-lg" placeholder="Choose file">
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>  
+        <div class="row">
+            <div class="col-md-12">
+                <div class="rev">
+                    <img  [src]="" alt="..." width="200" height="300" style="max-width: 250px;max-height: 350px;" >
+                </div> 
+            </div>
+            <!-- /.col -->
+        </div> 
+    </mat-dialog-content>
+
+
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave"  class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
+        </div>
+    </div> 
+</form>

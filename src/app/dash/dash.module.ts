@@ -42,6 +42,8 @@ import { UpdateProductComponent } from './product/update-product/update-product.
 import { ProductSaleComponent } from './product-sale/product-sale.component';
 import { InsertSaleComponent } from './product-sale/insert-sale/insert-sale.component';
 import { UpdateSaleComponent } from './product-sale/update-sale/update-sale.component';
+import { ImageComponent } from './product/image/image.component';
+import { InsertImageComponent } from './product/insert-image/insert-image.component';
 
 
 @NgModule({
@@ -82,7 +84,9 @@ import { UpdateSaleComponent } from './product-sale/update-sale/update-sale.comp
     UpdateProductComponent,
     ProductSaleComponent,
     InsertSaleComponent,
-    UpdateSaleComponent
+    UpdateSaleComponent,
+    ImageComponent,
+    InsertImageComponent
   ],
   imports: [
     CommonModule,
