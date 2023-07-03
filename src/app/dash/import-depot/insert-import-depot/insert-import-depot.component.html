@@ -1,0 +1,32 @@
+
+<form  [formGroup]="InsertForm">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+    </div>
+    <mat-dialog-content  class="mat-typography">
+            
+
+            <div class="row" style="width: 500px;">
+                <div class="col-md-12" >
+                            <div class="form-group">
+                                <label>Depot</label>
+                                <select class="form-control form-group-lg"id="idDepot" formControlName="idDepot"> 
+                                    <option selected disabled value="false">-- List item depot --</option>
+                                    <option [value]="item.id" *ngFor="let item of dataDepot; let i=index">{{item.id}}||{{item.nameDepot}}</option>
+                                </select> 
+                            </div>
+                     
+                    
+                </div>
+            </div>
+
+    </mat-dialog-content>
+
+
+    <div class="modal-footer" mat-dialog-actions>
+        <div class="text-right">
+            <button mat-dialog-save id="btSave" (click)="onSubmitInsert(InsertForm)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>&nbsp;Lưu</button>&nbsp;
+            <button mat-dialog-close  class="btn btn-danger btn-sm" ><i class="fa fa-close"></i>&nbsp;Close</button>
+        </div>
+    </div> 
+</form>

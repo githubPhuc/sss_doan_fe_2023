@@ -67,7 +67,6 @@ export class InsertProductComponent implements OnInit {
     });
     this.producerService.GetList("","").subscribe(res=>{
       this.dataProducer=res.acc;
-     
     });
     this.cpuService.GetCpuProducts().subscribe(data=>{
       this.dataCpu=data;
@@ -81,9 +80,10 @@ export class InsertProductComponent implements OnInit {
     this.categoryService.GetList("").subscribe(res=>{
       this.dataCategory=res.acc;
     });
-    this.productSaleService.GetListSale().subscribe(res=>{
-      this.dataSale=res.data;
-    });
+    // this.productSaleService.GetListSale().subscribe(res=>{
+    //   this.dataSale=res.data;
+    //   console.log(this.dataSale);
+    // });
   }
  
   InsertForm = new FormGroup({
@@ -102,7 +102,6 @@ export class InsertProductComponent implements OnInit {
     portConnection: new FormControl(''),
     MainProduct: new FormControl(''),
     AccessoriesIncluded: new FormControl(''),
-    idSale: new FormControl(''),
   });
   dataInsert=new Product(0,"","","",0,"",0,"",0,0,"",0,"",0,"",0,"",0,"",0,"","","","",true,true,0);
   
@@ -169,11 +168,6 @@ export class InsertProductComponent implements OnInit {
       this.toastr.ShowError('MainProduct is null!',' Please check again!');
       return;
     }
-    if(form.value.idSale.length<1)
-    {
-      this.toastr.ShowError('idSale is null!',' Please check again!');
-      return;
-    }
     this.dataInsert.nameProduct=form.value.nameProduct;
     this.dataInsert.RamProduct=form.value.RamProduct;
     this.dataInsert.CPUProduct=form.value.CPUProduct;
@@ -187,7 +181,6 @@ export class InsertProductComponent implements OnInit {
     this.dataInsert.portConnection=form.value.portConnection;
     this.dataInsert.AccessoriesIncluded=form.value.AccessoriesIncluded;
     this.dataInsert.MainProduct=form.value.MainProduct;
-    this.dataInsert.idSale=form.value.idSale;
     this.productService.Insert(this.dataInsert).subscribe((dataT: { status: any; message: any; }) => {
       if(dataT.status=="Success")
       {
@@ -195,19 +188,9 @@ export class InsertProductComponent implements OnInit {
           return this.toastr.ShowSuccess('Success!',dataT.message);
       }
       else{
-        this.isSuccess==false;
-        
         return this.toastr.ShowError('Error!',dataT.message);
       }
     });
   };
 
-  ShowImage(event:any){
-    let reader = new FileReader();
-    this.file = event.target.files[0];
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload=()=>{
-      this.imgShow=reader.result;
-    }
-  };
 }

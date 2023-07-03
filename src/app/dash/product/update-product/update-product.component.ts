@@ -73,7 +73,6 @@ export class UpdateProductComponent implements OnInit {
     portConnection: new FormControl(''),
     mainProduct: new FormControl(''),
     accessoriesIncluded: new FormControl(''),
-    idSale: new FormControl(''),
   });
   dataUpdate=new Product(0,"","","",0,"",0,"",0,0,"",0,"",0,"",0,"",0,"",0,"","","","",true,true,0);
   ngOnInit(): void {
@@ -106,9 +105,6 @@ export class UpdateProductComponent implements OnInit {
     this.categoryService.GetList("").subscribe(res=>{
       this.dataCategory=res.acc;
      
-    })
-    this.productSaleService.GetListSale().subscribe(res=>{
-      this.dataSale=res.data;
     })
   }
  
@@ -179,11 +175,6 @@ export class UpdateProductComponent implements OnInit {
       this.toastr.ShowError('MainProduct is null!',' Please check again!');
       return;
     }
-    if(form.value.idSale.length<1)
-    {
-      this.toastr.ShowError('idSale is null!',' Please check again!');
-      return;
-    }
     this.dataUpdate.nameProduct=form.value.nameProduct;
     this.dataUpdate.RamProduct=form.value.ramProduct;
     this.dataUpdate.CPUProduct=form.value.cpuProduct;
@@ -197,7 +188,6 @@ export class UpdateProductComponent implements OnInit {
     this.dataUpdate.portConnection=form.value.portConnection;
     this.dataUpdate.AccessoriesIncluded=form.value.accessoriesIncluded;
     this.dataUpdate.MainProduct=form.value.mainProduct;
-    this.dataUpdate.idSale=form.value.idSale;
     this.productService.Update(this.dataUpdate,this.id).subscribe((dataT: { status: any; message: any; }) => {
       if(dataT.status=="Success")
       {

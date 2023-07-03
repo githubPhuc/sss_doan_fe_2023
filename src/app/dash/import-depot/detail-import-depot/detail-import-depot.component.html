@@ -1,0 +1,121 @@
+<div class="modal-header">
+    <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
+</div>
+<mat-dialog-content  class="mat-typography">
+        
+<div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary card-outline">
+                        <form [formGroup]="InsertBillDetail" (ngSubmit)="OnInsertBillDetail(InsertBillDetail)" >
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <b>Create import bill detail</b>
+                                </h3>
+                            </div>
+                            <div class="card-body pad">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>product: </label>
+                                            <select class="form-control form-group-lg" id="idProduct" formControlName="idProduct"> 
+                                                <option selected disabled value="false">-- List item Product --</option>
+                                                <option [value]="item.id" *ngFor="let item of dataProduct; let i=index">{{item.id}}||{{item.nameProduct}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Price (VND): </label>
+                                            <input type="number" min="0" id="price" formControlName="price"  class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>quantity: </label>
+                                            <input type="number" min="0" id="quantity" formControlName="quantity"  class="form-control form-control-xs" />
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <button id="btnCraeate"  type="submit" [disabled]="!InsertBillDetail.valid"  class="btn bg-gradient-success"><i class="fa fa-plus"></i> create</button>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--Section data table-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <b>{{this.title}}</b>
+                            </h3>
+                        </div>
+                        <div class="card-body pad">
+                            <div class="row">
+                                <div class="col-md-12 table-body table-responsive">
+                                    <fieldset class="scheduler-border">
+                                        <legend class="scheduler-border">List record bill import depot detail</legend>
+                                        <div class="control-group">
+                                            <table id="myTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="250px"></th>
+                                                        <th >STT</th>
+                                                        <th>id</th>
+                                                        <th>nameProduct  </th>
+                                                        <th>billId </th>
+                                                        <th>Quantity </th>
+                                                        <th>Price </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  
+                                                    <tr *ngFor="let item of Data; let i=index">
+                                                        <td align="center">
+                                                            <!-- <a (click)="acceptance(item.id)" class="btn">
+                                                                <i class="bi bi-eye"></i> acceptance
+                                                            </a> -->
+                                                            <!-- <a (click)="detail(item.id)" class="btn">
+                                                                <i class="far  fa-list-alt"></i> detail
+                                                            </a>-->
+                                                            <a (click)="delete(item.id)" class="btn">
+                                                                <i class="far fa-trash-alt"></i> Delete
+                                                            </a> 
+                                                        </td>
+                                                        <td>{{i+1}}</td>
+                                                        <td>{{item.id}}</td>
+                                                        <td>{{item.nameProduct}}</td>
+                                                        <td>{{item.billId}}</td>
+                                                        <td>{{item.quantity}}</td>
+                                                        <td>{{item.price}}</td>
+                                                        
+                                                    </tr>
+                                                      
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!--End section data table-->
+        </div>
+    
+    
+    
+</div>
+</mat-dialog-content>

@@ -4,7 +4,7 @@
         <div class="modal-title" style="font-size: 17px;text-transform:uppercase;color:#3c8dbc"><strong id="myModalTitle">{{NameWeb}} </strong></div>
     </div>
     <mat-dialog-content  class="mat-typography">
-        <div class="row">
+        <div class="row" style="min-width: 700px;">
             <div class="col-md-12">
                 <div class="card card-primary card-outline">
                     <div class="card-body pad">
@@ -19,6 +19,7 @@
                                 <table id="myTable" class="table table-bordered ">
                                     <thead>
                                         <tr>
+                                            <th ></th>
                                             <th >Id</th>
                                             <th>nameImage</th>
                                             <th>nameProduct</th>
@@ -29,6 +30,11 @@
                                     <tbody>
                                       
                                         <tr *ngFor="let item of dataImage; let i=index">
+                                            <td>
+                                                <a (click)="delete(item.id)" class="btn">
+                                                    <i class="far fa-trash-alt"></i> Delete
+                                                </a>
+                                            </td>
                                             <td>{{item.id}}</td>
                                             <td>{{item.nameImage}}</td>
                                             <td>{{item.nameProduct}}</td>

@@ -52,7 +52,7 @@ export class InsertAccountComponent implements OnInit {
     this.cityService.getCities("").subscribe(res=>{
       this.dataCity=res.acc;
     })
-    this.imgShow=" No-Image.png";
+    this.imgShow="No-Image.png";
   }
   onChangeCity(event:any){
     this.numDataCity=event;
@@ -63,7 +63,6 @@ export class InsertAccountComponent implements OnInit {
   onChangeDistrict(event:any){
     this.wardsService.GetWardOnDistrictAndCity(this.numDataCity,event).subscribe(res=>{
       this.dataWards=res.acc;
-      console.log(this.dataWards);
     })
   }
   InsertForm = new FormGroup({
@@ -149,9 +148,7 @@ export class InsertAccountComponent implements OnInit {
       {console.log(this.file);
         this.accountService.UploadImage(this.username,formdata).subscribe(result => {
           this.toastr.ShowSuccess('Success!',dataT.message);
-          console.log(result);
-
-          // location.reload(); 
+          location.reload(); 
         });
       }
       else{

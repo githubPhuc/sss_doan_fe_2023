@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
-  styleUrls: ['../product.component.scss']
+  styleUrls: ['../../dash.component.scss']
 })
 export class ImageComponent implements OnInit {
 
@@ -30,7 +30,6 @@ export class ImageComponent implements OnInit {
   ngOnInit(): void {
     this.productService.ListImages(this.id).subscribe(res=>{
       this.dataImage=res.data;
-      console.log(this.dataImage);
     })
   }
   public insertImage()
@@ -43,5 +42,25 @@ export class ImageComponent implements OnInit {
         id:this.id,
       }
     });  
+  }
+  public delete(id:number)
+  {
+    if(window.confirm('Do you want to remove this image product with id equal to '+id+' ?'))
+    {
+      this.productService.deleteImage(id,this.id).subscribe((dataT: { status: any; message: any; }) => {
+        if(dataT.status=="Success")
+        {
+          this.toastr.ShowSuccess('Success!',dataT.message);
+          this.ngOnInit();
+          return;
+        }
+        else{
+          this.toastr.ShowError('Error!',dataT.message);
+          return;
+        }
+       
+      });    
+    }
+    
   }
 }

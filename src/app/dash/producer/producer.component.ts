@@ -102,7 +102,7 @@ export class ProducerComponent  implements OnInit {
         if(dataT.status=="Success")
         {
           this.toastr.ShowSuccess('Success!',dataT.message);
-          location.reload(); 
+          this.ngOnInit();
         }
         else{
           this.toastr.ShowError('Error!',dataT.message);

@@ -3,17 +3,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NotifierService } from 'src/app/service/notifier.service';
-import { Account } from './Account';
-import { AccountService } from './account.service';
-import { InsertAccountComponent } from './insert/insert.component';
-import { UpdateAccountComponent } from './update-account/update-account.component';
+import { AccountService } from '../account/account.service';
 
 @Component({
-  selector: 'app-account',
-  templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  selector: 'app-account-user',
+  templateUrl: './account-user.component.html',
+  styleUrls: ['./account-user.component.scss']
 })
-export class AccountComponent implements OnInit {
+export class AccountUserComponent implements OnInit {
   closeResult = '';
   constructor(private accountService:AccountService,
               private toastr:NotifierService,
@@ -32,7 +29,7 @@ export class AccountComponent implements OnInit {
     {
       this.router.navigate(['/Login']);
     }
-    this.accountService.getAccountAdmin("","","").subscribe(res=>{
+    this.accountService.getAccountUser("","","").subscribe(res=>{
       this.accountData=res.acc;
       console.log(this.accountData);
     })
@@ -41,30 +38,7 @@ export class AccountComponent implements OnInit {
      
   }
 
-  // go to view insert
-  _InsertView(){
-    this.dialog.open(InsertAccountComponent,{
-      data : {
-        enterAnimationDuration: '1000ms',
-        exitAnimationDuration: '600ms',
-        name : 'Insert Account'
-      }
-    });
-  }
-  // go to view insert
-  public Update(UserName:string)
-  {
-    console.log(UserName)
-    this.dialog.open(UpdateAccountComponent,{
-      data : {
-        enterAnimationDuration: '1000ms',
-        exitAnimationDuration: '600ms',
-        name : 'Update Producer',
-        UserName:UserName,
-      }
-    });
-    
-  }
+  
 
   
 //----------Search from-------------//
@@ -74,7 +48,7 @@ export class AccountComponent implements OnInit {
     Email: new FormControl(''),
   });
   public Search(form:FormGroup) {
-    this.accountService.getAccountAdmin(form.value.Fullname,form.value.Username,form.value.Email).subscribe(res=>{
+    this.accountService.getAccountUser(form.value.Fullname,form.value.Username,form.value.Email).subscribe(res=>{
       this.accountData=res.acc;
     })
   }

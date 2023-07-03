@@ -47,14 +47,6 @@
                         </h3>
                     </div>
                     <div class="card-body pad">
-                        <div class="row" style="margin-bottom:10px">
-                            <div class="col-md-4">
-                                <div class="col-lg-3 align-self-center text-right">
-                                    <button id="btInsert" (click)="_InsertView()" type="button" class="btn bg-gradient-success"><i class="fa fa-plus"></i>&nbsp;Add record</button>&nbsp;
-                                    
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-12 table-body table-responsive">
                                 <fieldset class="scheduler-border">
@@ -68,9 +60,8 @@
                                                     <th>User name</th>
                                                     <th>Full name  </th>
                                                     <th>Email </th>
-                                                    <th>Account type </th>
+                                                    <th>Ship Address</th>
                                                     <th>Phone number </th>
-                                                    <th>Department </th>
                                                     <th>Image </th>
                                                     <th>Is Locked </th>
                                                 </tr>
@@ -83,17 +74,13 @@
                                                         <a (click)="lockAccount(item.userName)" class="btn">
                                                             <i class="far fa-trash-alt"></i> Lock account
                                                         </a>
-                                                        <a (click)="Update(item.userName)" class="btn">
-                                                            <i class="far fa-edit"></i> Update
-                                                        </a>
                                                     </td>
                                                     <td>{{i+1}}</td>
                                                     <td>{{item.userName}}</td>
                                                     <td>{{item.fullname}}</td>
                                                     <td>{{item.email}}</td>
-                                                    <td>{{item.accoutType}}</td>
+                                                    <td>{{item.shippingAddress}}-{{item.wardsName}}-{{item.districtName}}-{{item.cityName}}</td>
                                                     <td>{{item.phoneNumber}}</td>
-                                                    <td>{{item.department}}</td>
                                                     <td><img  src="{{item.productImage}}"
                                                         class="img-responsive img-thumbnail" style="width:70px;height:70px"></td>
                                                     <td>{{(item.isLocked==true)?"Ngừng hoạt động":"Đang hoạt động"}}</td>

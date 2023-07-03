@@ -36,6 +36,16 @@ export class ProductService {
       });
 
   }
+  public GetCBX() {
+    return this.httpClient
+      .get<any>('https://localhost:7109/api/Products/GetCBX', {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.strToken
+        })
+      });
+
+  }
   public GetProductOnIdDetail(id: number) {
     console.log(id);
     return this.httpClient
@@ -93,6 +103,12 @@ export class ProductService {
   }
   public DeleteProduct(id:number){
     return this.httpClient.post<any>('https://localhost:7109/api/Products/DeleteProduct?id='+id, {headers: new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.token
+   })});
+  }
+  public deleteImage(id:number,idProduct:number){
+    return this.httpClient.post<any>('https://localhost:7109/api/Products/deleteImage?id='+id+'&idProduct='+idProduct, {headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.token
    })});

@@ -45,6 +45,10 @@ import { UpdateSaleComponent } from './product-sale/update-sale/update-sale.comp
 import { ImageComponent } from './product/image/image.component';
 import { InsertImageComponent } from './product/insert-image/insert-image.component';
 import { DepartmentComponent } from './department/department.component';
+import { ImportDepotComponent } from './import-depot/import-depot.component';
+import { InsertImportDepotComponent } from './import-depot/insert-import-depot/insert-import-depot.component';
+import { DetailImportDepotComponent } from './import-depot/detail-import-depot/detail-import-depot.component';
+import { AccountUserComponent } from './account-user/account-user.component';
 
 
 @NgModule({
@@ -88,7 +92,11 @@ import { DepartmentComponent } from './department/department.component';
     InsertSaleComponent,
     UpdateSaleComponent,
     ImageComponent,
-    InsertImageComponent
+    InsertImageComponent,
+    ImportDepotComponent,
+    InsertImportDepotComponent,
+    DetailImportDepotComponent,
+    AccountUserComponent
   ],
   imports: [
     CommonModule,

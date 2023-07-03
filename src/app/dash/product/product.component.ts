@@ -14,7 +14,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['../dash.component.scss']
 })
 export class ProductComponent  implements OnInit {
   closeResult = '';
@@ -86,14 +86,13 @@ export class ProductComponent  implements OnInit {
   }
   public delete(id:number)
   {
-    if(window.confirm('Do you want to remove this manufacturer with id equal to '+id+' ?'))
+    if(window.confirm('Do you want to remove this product with id equal to '+id+' ?'))
     {
       this.productService.DeleteProduct(id).subscribe((dataT: { status: any; message: any; }) => {
         if(dataT.status=="Success")
         {
           this.toastr.ShowSuccess('Success!',dataT.message);
-          location.reload(); 
-          return;
+          this.ngOnInit();
         }
         else{
           this.toastr.ShowError('Error!',dataT.message);

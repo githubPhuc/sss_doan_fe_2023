@@ -22,6 +22,8 @@ import { ProducerComponent } from './producer/producer.component';
 import { DepartmentComponent } from './department/department.component';
 import { CategoryProductComponent } from './category-product/category-product.component';
 import { ProductSaleComponent } from './product-sale/product-sale.component';
+import { ImportDepotComponent } from './import-depot/import-depot.component';
+import { AccountUserComponent } from './account-user/account-user.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,8 @@ const routes: Routes = [
   { path: 'Department', component: DepartmentComponent },
   { path: 'Category', component: CategoryProductComponent },
   { path: 'ProductSale', component: ProductSaleComponent },
+  { path: 'ImportDepot', component: ImportDepotComponent },
+  { path: 'AccountUser', component: AccountUserComponent },
 ];
 
 @NgModule({
