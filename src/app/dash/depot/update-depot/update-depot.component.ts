@@ -9,7 +9,7 @@ import { DepotService } from '../depot.service';
 @Component({
   selector: 'app-update-depot',
   templateUrl: './update-depot.component.html',
-  styleUrls: ['./update-depot.component.scss']
+  styleUrls: ['../depot.component.scss']
 })
 export class UpdateDepotComponent implements OnInit {
 

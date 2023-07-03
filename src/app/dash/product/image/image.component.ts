@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
-  styleUrls: ['./image.component.scss']
+  styleUrls: ['../product.component.scss']
 })
 export class ImageComponent implements OnInit {
 

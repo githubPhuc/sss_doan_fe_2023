@@ -9,7 +9,7 @@ import { Sale } from '../Sale';
 @Component({
   selector: 'app-insert-sale',
   templateUrl: './insert-sale.component.html',
-  styleUrls: ['./insert-sale.component.scss']
+  styleUrls: ['../product-sale.component.scss']
 })
 export class InsertSaleComponent  implements OnInit {
 

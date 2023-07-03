@@ -10,7 +10,7 @@ import { WardsService } from '../wards.service';
 @Component({
   selector: 'app-insert-wards',
   templateUrl: './insert-wards.component.html',
-  styleUrls: ['./insert-wards.component.scss']
+  styleUrls: ['../wards.component.scss']
 })
 export class InsertWardsComponent  implements OnInit {
 

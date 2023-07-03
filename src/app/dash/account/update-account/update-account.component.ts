@@ -13,7 +13,7 @@ import { AccountService } from '../account.service';
 @Component({
   selector: 'app-update-account',
   templateUrl: './update-account.component.html',
-  styleUrls: ['./update-account.component.scss']
+  styleUrls: ['../account.component.scss']
 })
 export class UpdateAccountComponent  implements OnInit {
 

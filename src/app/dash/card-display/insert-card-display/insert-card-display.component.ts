@@ -8,7 +8,7 @@ import { CardDisplayService } from '../card-display.service';
 @Component({
   selector: 'app-insert-card-display',
   templateUrl: './insert-card-display.component.html',
-  styleUrls: ['./insert-card-display.component.scss']
+  styleUrls: ['../card-display.component.scss']
 })
 export class InsertCardDisplayComponent implements OnInit {
 

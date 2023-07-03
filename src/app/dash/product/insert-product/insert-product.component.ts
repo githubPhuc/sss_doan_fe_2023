@@ -19,7 +19,7 @@ import { ProductService } from '../product.service';
 @Component({
   selector: 'app-insert-product',
   templateUrl: './insert-product.component.html',
-  styleUrls: ['./insert-product.component.scss']
+  styleUrls: ['../product.component.scss']
 })
 export class InsertProductComponent implements OnInit {
 

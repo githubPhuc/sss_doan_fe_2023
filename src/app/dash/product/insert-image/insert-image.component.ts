@@ -6,7 +6,7 @@ import { ProductService } from '../product.service';
 @Component({
   selector: 'app-insert-image',
   templateUrl: './insert-image.component.html',
-  styleUrls: ['./insert-image.component.scss']
+  styleUrls: ['../product.component.scss']
 })
 export class InsertImageComponent implements OnInit {
   NameWeb;

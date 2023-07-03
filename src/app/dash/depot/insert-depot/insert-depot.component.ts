@@ -12,7 +12,7 @@ import { DepotService } from '../depot.service';
 @Component({
   selector: 'app-insert-depot',
   templateUrl: './insert-depot.component.html',
-  styleUrls: ['./insert-depot.component.scss']
+  styleUrls: ['../depot.component.scss']
 })
 export class InsertDepotComponent implements OnInit {
 

@@ -12,7 +12,7 @@ import { ProducerService } from '../producer.service';
 @Component({
   selector: 'app-insert-producer',
   templateUrl: './insert-producer.component.html',
-  styleUrls: ['./insert-producer.component.scss']
+  styleUrls: ['../producer.component.scss']
 })
 export class InsertProducerComponent implements OnInit {
 

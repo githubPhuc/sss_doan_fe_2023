@@ -8,7 +8,7 @@ import { Menus } from '../Menu';
 @Component({
   selector: 'app-insert',
   templateUrl: './insert.component.html',
-  styleUrls: ['./insert.component.scss']
+  styleUrls: ['../menu.component.scss']
 })
 export class InsertComponent implements OnInit {
   constructor(private menuService:MenuService,

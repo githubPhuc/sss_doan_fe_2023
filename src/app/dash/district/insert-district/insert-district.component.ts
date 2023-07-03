@@ -9,7 +9,7 @@ import { DistrictService } from '../district.service';
 @Component({
   selector: 'app-insert-district',
   templateUrl: './insert-district.component.html',
-  styleUrls: ['./insert-district.component.scss']
+  styleUrls: ['../district.component.scss']
 })
 export class InsertDistrictComponent implements OnInit {
 

@@ -14,7 +14,7 @@ import { AccountService } from '../account.service';
 @Component({
   selector: 'app-insert',
   templateUrl: './insert.component.html',
-  styleUrls: ['./insert.component.scss']
+  styleUrls: ['../account.component.scss']
 })
 export class InsertAccountComponent implements OnInit {
 

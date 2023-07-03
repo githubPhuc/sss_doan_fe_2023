@@ -8,7 +8,7 @@ import { DepartmentService } from '../department.service';
 @Component({
   selector: 'app-insert-department',
   templateUrl: './insert-department.component.html',
-  styleUrls: ['./insert-department.component.scss']
+  styleUrls: ['../department.component.scss']
 })
 export class InsertDepartmentComponent implements OnInit {
 

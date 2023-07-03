@@ -9,7 +9,7 @@ import { Sale } from '../Sale';
 @Component({
   selector: 'app-update-sale',
   templateUrl: './update-sale.component.html',
-  styleUrls: ['./update-sale.component.scss']
+  styleUrls: ['../product-sale.component.scss']
 })
 export class UpdateSaleComponent  implements OnInit {
 
