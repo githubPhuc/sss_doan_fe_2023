@@ -25,58 +25,18 @@ export class ProducerComponent  implements OnInit {
               private alert: ToastrService,
               
       ) { }
-      // dtoptions: DataTables.Settings = {};
-      dtTrigger:Subject<any>=new Subject<any>();
-
     Data:any;
-    token!:string;
-    tk:any;
     title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
-    islogin!:boolean;
   
   ngOnInit(): void {
     if(localStorage.getItem('role')!='Admin')
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
     this.producerService.GetList("","").subscribe(res=>{
       this.Data=res.acc;
-      console.log(this.Data);
     })
-      this.title="Directory producer"
-
-      
-      // this.dtoptions = {
-      //   destroy: true, 
-      //     lengthMenu: [5, 10, 25, 50, 75, 100],
-      //     columnDefs: [
-      //         {
-      //             "targets": [0,1],
-      //             orderable: false
-      //         },
-      //     ],
-      //     info: false,
-      //     processing: false,
-      //     serverSide: false,
-      //     bFilter: true,
-      //     bPaginate: true,
-      //     bLengthChange: true,
-      //     bInfo: true,
-      //     responsive: true,
-      //     lengthChange: true,
-      //     autoWidth: false,
-      //     stateSave: true,
-      //     buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
-  
-      // };
-     
+      this.title="Directory producer"     
   }
 
   // go to view insert

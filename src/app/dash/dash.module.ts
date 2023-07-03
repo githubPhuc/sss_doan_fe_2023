@@ -44,6 +44,7 @@ import { InsertSaleComponent } from './product-sale/insert-sale/insert-sale.comp
 import { UpdateSaleComponent } from './product-sale/update-sale/update-sale.component';
 import { ImageComponent } from './product/image/image.component';
 import { InsertImageComponent } from './product/insert-image/insert-image.component';
+import { DepartmentComponent } from './department/department.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { InsertImageComponent } from './product/insert-image/insert-image.compon
     InsertDepotComponent,
     UpdateDepotComponent,
     ProducerComponent,
+    DepartmentComponent,
     InsertProducerComponent,
     UpdateProducerComponent,
     UpdateAccountComponent,

@@ -59,7 +59,6 @@ export class UpdateProducerComponent  implements OnInit {
     this.producerService.GetListById(this.id).subscribe(res => {
       
       this.UpdateForm.patchValue(res.acc);
-      console.log(this.UpdateForm.value);
       this.imgShow=res.acc.pathLogo;
     })
   }

@@ -58,37 +58,32 @@ export class InsertProductComponent implements OnInit {
   ngOnInit(): void {
     this.ramService.GetRamProducts().subscribe(data=>{
       this.dataRam=data;
-    })
- 
+    });
     this.ssdService.GetSsdProduct().subscribe(data=>{
       this.dataSsd=data;
-      console.log(this.dataSsd);
-    })
+    });
     this.displayService.GetDisplayProducts().subscribe(data=>{
       this.dataDisplay=data;
-      console.log(this.dataDisplay);
-    })
+    });
     this.producerService.GetList("","").subscribe(res=>{
       this.dataProducer=res.acc;
      
-    })
+    });
     this.cpuService.GetCpuProducts().subscribe(data=>{
       this.dataCpu=data;
-    })
+    });
     this.cardDisplayService.Get("").subscribe(res=>{
       this.dataCardDisplay=res.acc;
-    })
+    });
     this.colorService.GetColorProducts().subscribe(data=>{
       this.dataColor=data;
-    })
+    });
     this.categoryService.GetList("").subscribe(res=>{
       this.dataCategory=res.acc;
-     
-    })
+    });
     this.productSaleService.GetListSale().subscribe(res=>{
       this.dataSale=res.data;
-     
-    })
+    });
   }
  
   InsertForm = new FormGroup({
@@ -114,12 +109,10 @@ export class InsertProductComponent implements OnInit {
   onSubmitInsert(form:FormGroup)
   {
     this.isSuccess=false;
-    console.warn(form.value);
     if(form.value.nameProduct.length<1)
     {
       this.toastr.ShowError('name Produce is null!',' Please check again!');
       return;
-  
     }
     if(form.value.idCategory.length<1)
     {
@@ -181,10 +174,6 @@ export class InsertProductComponent implements OnInit {
       this.toastr.ShowError('idSale is null!',' Please check again!');
       return;
     }
-   
-   
-   
-    
     this.dataInsert.nameProduct=form.value.nameProduct;
     this.dataInsert.RamProduct=form.value.RamProduct;
     this.dataInsert.CPUProduct=form.value.CPUProduct;
@@ -199,25 +188,19 @@ export class InsertProductComponent implements OnInit {
     this.dataInsert.AccessoriesIncluded=form.value.AccessoriesIncluded;
     this.dataInsert.MainProduct=form.value.MainProduct;
     this.dataInsert.idSale=form.value.idSale;
-    
-    console.log(this.dataInsert);
-    // let formdata = new FormData();
-    // formdata.append("file", this.file, this.dataInsert.nameProduct)
     this.productService.Insert(this.dataInsert).subscribe((dataT: { status: any; message: any; }) => {
       if(dataT.status=="Success")
       {
-          this.toastr.ShowSuccess('Success!',dataT.message);
           location.reload();
-       
+          return this.toastr.ShowSuccess('Success!',dataT.message);
       }
       else{
         this.isSuccess==false;
-        this.toastr.ShowError('Error!',dataT.message);
-        return;
+        
+        return this.toastr.ShowError('Error!',dataT.message);
       }
     });
-   
-  }
+  };
 
   ShowImage(event:any){
     let reader = new FileReader();
@@ -226,5 +209,5 @@ export class InsertProductComponent implements OnInit {
     reader.onload=()=>{
       this.imgShow=reader.result;
     }
-  }
+  };
 }

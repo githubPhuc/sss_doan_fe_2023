@@ -15,17 +15,12 @@ export class MenuComponent  implements OnInit {
               private router:Router,
       ) { }
     menus:any;
-    token!:string;
-    tk:any;
-    dataT:any;
     title:any;
   
   ngOnInit(): void {
 
       this.menuService.getMenu().subscribe(data => {
         this.menus=data;
-        this.dataT=data;
-        console.log(data);
       });
       this.title="Danh mục menu"
 

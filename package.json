@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "ng-high-memory": "node --max_old_space_size=5120 ./node_modules/@angular/cli/bin/ng build ",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -26,6 +27,7 @@
     "angular-datatables": "^15.0.1",
     "bootstrap": "^5.3.0",
     "bootstrap-icons": "^1.10.5",
+    "increase-memory-limit": "^1.0.7",
     "jquery": "^3.7.0",
     "ngx-mat-select-search": "^7.0.2",
     "ngx-toastr": "^16.2.0",
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.7",
+    "@angular-extensions/lint-rules": "^1.2.1",
     "@angular/cli": "~15.2.7",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",

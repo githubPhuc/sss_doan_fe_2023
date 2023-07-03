@@ -25,10 +25,6 @@ export class AccountComponent implements OnInit {
     tk:any;
     dataT:any;
     title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
     islogin!:boolean;
   
   ngOnInit(): void {
@@ -36,9 +32,6 @@ export class AccountComponent implements OnInit {
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
     this.accountService.getAccountAdmin("","","").subscribe(res=>{
       this.accountData=res.acc;
       console.log(this.accountData);

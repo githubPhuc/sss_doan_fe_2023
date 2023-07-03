@@ -9,15 +9,13 @@ import { LoginComponent  } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import {ToastrModule} from 'ngx-toastr';
-import { DepartmentComponent } from './dash/department/department.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DepartmentComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -29,10 +27,9 @@ import { DepartmentComponent } from './dash/department/department.component';
     ToastrModule.forRoot({
       positionClass:"toast-top-right",
       preventDuplicates:true,
-      timeOut:3000,
       
     }),
-    NgxMatSelectSearchModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

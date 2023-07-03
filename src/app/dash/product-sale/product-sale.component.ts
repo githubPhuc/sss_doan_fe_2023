@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NotifierService } from 'src/app/service/notifier.service';
@@ -11,7 +11,7 @@ import { UpdateSaleComponent } from './update-sale/update-sale.component';
   templateUrl: './product-sale.component.html',
   styleUrls: ['./product-sale.component.scss']
 })
-export class ProductSaleComponent implements OnInit {
+export class ProductSaleComponent implements OnInit ,OnDestroy {
   closeResult = '';
   constructor(private productSaleService:ProductSaleService,
               private toastr:NotifierService,
@@ -19,26 +19,15 @@ export class ProductSaleComponent implements OnInit {
               private dialog:MatDialog,
       ) { }
     saleData:any;
-    token!:string;
-    tk:any;
     title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
-    islogin!:boolean;
   
   ngOnInit(): void {
     if(localStorage.getItem('role')!='Admin')
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
     this.productSaleService.GetListSale().subscribe(res=>{
       this.saleData=res.data;
-      console.log(this.saleData);
     })
       this.title="Directory Sale"
 
@@ -53,6 +42,7 @@ export class ProductSaleComponent implements OnInit {
         exitAnimationDuration: '600ms',
         name : 'Insert Sale'
       }
+      
     });
   }
 
@@ -90,5 +80,8 @@ export class ProductSaleComponent implements OnInit {
       }
     });
     
+  }
+  ngOnDestroy(): void {
+    this.saleData.unsubscribe();
   }
 }

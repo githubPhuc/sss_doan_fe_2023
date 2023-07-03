@@ -39,10 +39,7 @@ export class UpdateSaleComponent  implements OnInit {
   dataSale=new Sale(0,"","",0,"",true);
   ngOnInit(): void {
     this.productSaleService.GetListSaleByID(this.id).subscribe(res => {
-      
       this.updateForm.patchValue(res.data);
-      console.log(this.updateForm.value);
-      console.log(res);
     })
   }
   
@@ -60,15 +57,14 @@ export class UpdateSaleComponent  implements OnInit {
     this.dataSale.marth=form.value.marth;
     this.dataSale.Unit=form.value.unit;
     this.dataSale.status=true;
-    console.log(this.dataSale);
     this.productSaleService.Update(this.dataSale,this.id).subscribe((dataT: { status: any; message: any; }) => {
       if(dataT.status=="Success")
       {
           this.toastr.ShowSuccess('Success!',dataT.message);
           location.reload(); 
+          return;
       }
       else{
-       
         this.toastr.ShowError('Error!',dataT.message);
         return;
       }

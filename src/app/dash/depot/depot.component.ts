@@ -20,23 +20,13 @@ export class DepotComponent  implements OnInit {
               private dialog:MatDialog,
       ) { }
     depotData:any;
-    token!:string;
-    tk:any;
     title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
-    islogin!:boolean;
   
   ngOnInit(): void {
     if(localStorage.getItem('role')!='Admin')
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
     this.depotService.get("","").subscribe(res=>{
       this.depotData=res.acc;
       console.log(this.depotData);
@@ -45,8 +35,6 @@ export class DepotComponent  implements OnInit {
 
      
   }
-
-  // go to view insert
   _InsertView(){
     this.dialog.open(InsertDepotComponent,{
       data : {

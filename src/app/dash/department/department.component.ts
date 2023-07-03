@@ -19,27 +19,15 @@ export class DepartmentComponent  implements OnInit {
               private dialog:MatDialog,
       ) { }
     Data:any;
-    token!:string;
-    tk:any;
-    dataT:any;
     title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
-    islogin!:boolean;
   
   ngOnInit(): void {
     if(localStorage.getItem('role')!='Admin')
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
     this.departmentService.GetList("").subscribe(res=>{
       this.Data=res.data;
-      console.log(res.data);
     })
       this.title="Directory District"
   }

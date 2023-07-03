@@ -16,27 +16,15 @@ export class CpuProductComponent implements OnInit {
               private toastr:NotifierService,
               private router:Router,
       ) { }
-    Cpuproduct:any;
-    token!:string;
-    tk:any;
     dataT:any;
     title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
-    islogin!:boolean;
   
   ngOnInit(): void {
     if(localStorage.getItem('role')!='Admin')
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this  .islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
       this.cpuService.GetCpuProducts().subscribe(data => {
-        this.Cpuproduct=data;
         this.dataT=data;
       });
       this.title="Directory Cpu product"

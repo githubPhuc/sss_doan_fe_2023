@@ -48,7 +48,6 @@ export class ProductService {
 
   }
   public ListImages(id: number) {
-    console.log(id);
     return this.httpClient
       .get<any>('https://localhost:7109/api/Products/ListImages?idProduct=' + id, {
         headers: new HttpHeaders({

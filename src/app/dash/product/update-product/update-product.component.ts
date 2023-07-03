@@ -80,8 +80,6 @@ export class UpdateProductComponent implements OnInit {
     this.productService.GetProductById(this.id).subscribe(res => {
       
       this.UpdateForm.patchValue(res.data);
-      console.log(this.UpdateForm.value);
-      console.log(res);
     })
     this.ramService.GetRamProducts().subscribe(data=>{
       this.dataRam=data;
@@ -89,15 +87,12 @@ export class UpdateProductComponent implements OnInit {
  
     this.ssdService.GetSsdProduct().subscribe(data=>{
       this.dataSsd=data;
-      console.log(this.dataSsd);
     })
     this.displayService.GetDisplayProducts().subscribe(data=>{
       this.dataDisplay=data;
-      console.log(this.dataDisplay);
     })
     this.producerService.GetList("","").subscribe(res=>{
       this.dataProducer=res.acc;
-     
     })
     this.cpuService.GetCpuProducts().subscribe(data=>{
       this.dataCpu=data;
@@ -114,7 +109,6 @@ export class UpdateProductComponent implements OnInit {
     })
     this.productSaleService.GetListSale().subscribe(res=>{
       this.dataSale=res.data;
-     
     })
   }
  
@@ -190,10 +184,6 @@ export class UpdateProductComponent implements OnInit {
       this.toastr.ShowError('idSale is null!',' Please check again!');
       return;
     }
-   
-   
-   
-    
     this.dataUpdate.nameProduct=form.value.nameProduct;
     this.dataUpdate.RamProduct=form.value.ramProduct;
     this.dataUpdate.CPUProduct=form.value.cpuProduct;
@@ -208,13 +198,12 @@ export class UpdateProductComponent implements OnInit {
     this.dataUpdate.AccessoriesIncluded=form.value.accessoriesIncluded;
     this.dataUpdate.MainProduct=form.value.mainProduct;
     this.dataUpdate.idSale=form.value.idSale;
-    console.log(this.dataUpdate);
     this.productService.Update(this.dataUpdate,this.id).subscribe((dataT: { status: any; message: any; }) => {
       if(dataT.status=="Success")
       {
           this.toastr.ShowSuccess('Success!',dataT.message);
           location.reload();
-       
+          return;
       }
       else{
         this.isSuccess==false;

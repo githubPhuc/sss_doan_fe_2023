@@ -15,9 +15,7 @@ export class DetailComponent implements OnInit {
   id;
   dataProduct:any;
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
-                                        
                                         private productService:ProductService,
-                                      
                                         private toastr:NotifierService,
                                         private router:Router,
                                         ) {
@@ -28,8 +26,6 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.productService.GetProductOnIdDetail(this.id).subscribe(res => {
       this.dataProduct=res.data;
-      console.log(this.dataProduct);
-      console.log(res);
     })
   }
 }

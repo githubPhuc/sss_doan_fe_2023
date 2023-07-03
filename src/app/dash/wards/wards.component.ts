@@ -19,24 +19,13 @@ export class WardsComponent implements OnInit {
               private dialog:MatDialog,
       ) { }
     Data:any;
-    token!:string;
-    tk:any;
-    dataT:any;
     title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
-    islogin!:boolean;
   
   ngOnInit(): void {
     if(localStorage.getItem('role')!='Admin')
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this.islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
     this.wardsService.getWards("").subscribe(res=>{
       this.Data=res.acc;
       console.log(this.Data);

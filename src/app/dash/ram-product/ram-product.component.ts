@@ -16,30 +16,18 @@ export class RamProductComponent implements OnInit {
               private toastr:NotifierService,
               private router:Router,
       ) { }
-    Ramproduct:any;
-    token!:string;
-    tk:any;
     dataT:any;
-    title:any;
-    [x: string]: any;
-    scr:boolean=false;  
-    username:any;
-    name:any;
-    islogin!:boolean;
+    title:any;   
   
   ngOnInit(): void {
     if(localStorage.getItem('role')!='Admin')
     {
       this.router.navigate(['/Login']);
     }
-    localStorage.getItem('token')!=null?this.islogin=true:this  .islogin=false;
-    this.username = localStorage.getItem('username')!;
-    this.name =localStorage.getItem('name')!;
-      this.ramService.GetRamProducts().subscribe(data => {
-        this.Ramproduct=data;
-        this.dataT=data;
-      });
-      this.title="Directory Ram"
+    this.ramService.GetRamProducts().subscribe(data => {
+      this.dataT=data;
+    });
+    this.title="Directory Ram"
 
      
   }
@@ -76,6 +64,7 @@ export class RamProductComponent implements OnInit {
         {
           this.toastr.ShowSuccess('Success!',dataT.message);
           location.reload(); 
+          return;
         }
         else{
           this.toastr.ShowError('Error!',dataT.message);
@@ -94,6 +83,7 @@ export class RamProductComponent implements OnInit {
         {
           this.toastr.ShowSuccess('Success!',dataT.message);
           location.reload(); 
+          return;
         }
         else{
           this.toastr.ShowError('Error!',dataT.message);
