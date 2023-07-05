@@ -128,5 +128,7 @@ export class ProductComponent  implements OnInit {
       }
     });  
   }
- 
+  ngOnDestroy(): void {
+    this.Data.unsubscribe();
+  }
 }
